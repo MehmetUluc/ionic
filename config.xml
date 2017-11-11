@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.vectorCoder.ecommerceLaravelDemo_2" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.vectorCoder.tacettin" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Ionic Demo_2</name>
   <description>&#xD;
         An Ionic Framework and Cordova project.&#xD;
   </description>
   <author email="ionic.vectorcoder@gmail.com" href="http://ionicecommerce.com/">&#xD;
-      Muhammad Muzammil&#xD;
+     Pekiweb
   </author>
   <content src="index.html"/>
   <access origin="*"/>
