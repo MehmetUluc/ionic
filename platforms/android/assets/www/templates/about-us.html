@@ -1,0 +1,40 @@
+<ion-view view-title="Thank You">
+    <div class="bar bar-header bar-positive">
+        <div class="buttons">
+            <a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+        </div>
+        <h1 class="title" translate>About Us</h1>
+    </div>
+    <ion-content class="about-panel has-header">
+        <div class="list list-about">
+            <img src="img/icon_logo.svg" alt="logo" width="50">
+            <h4 style="margin-bottom:5px;">ABOUT IONIC ECOMMERCE</h4>
+            <!-- <span>version 1.0</span> -->
+        </div>
+
+        <div class="list list-desc">
+            <div ng-bind-html="aboutUs"></div>
+        </div>
+        
+         <div class="list list-links">
+            <a ng-click="openLink('http://ionicecommerce.com/')" class="item item-icon-right">
+                Official Website
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+            <a ng-click="showModal('privacyPolicy')" class="item item-icon-right">
+                Privacy Policy
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+            <a ng-click="showModal('refundPolicy')" class="item item-icon-right">
+                Refund Policy
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+            <a ng-click="showModal('termServices')" class="item item-icon-right">
+                Term of servics
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

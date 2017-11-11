@@ -1,0 +1,48 @@
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon" >
+            </a>
+        </div>
+        <h1 class="title" translate>Favourite</h1>
+        <div class="buttons">
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartArray.length}}</span></a>
+        </div>
+    </div>
+    <ion-content class="wish-panel content-panel has-header has-footer" lazy-scroll delegate-handle="wishList">
+        <div class="empty-content" ng-if="wishList.length==0 && !falseInfinte">
+            <div class="empty-content-inner">
+                <span class="icon ion-heart"></span>
+                <h4 translate>Your wish List is empty</h4>
+                <h4 translate>Continue Adding</h4>
+                <button class="button button-block button-royal" ui-sref="menu.products" translate>Explore</button>
+            </div>
+        </div>
+        <div class="products products-panel">
+            <div class="item-single item-single-both col col-50" ng-repeat="product in wishList track by $index">
+                <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+               
+                <div class="item-thumb" ng-click="showProductDetail(product)">
+                     <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+                    <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
+                </div>
+                <h6 class="item-title">{{product.products_name}}</h6>
+                <div class="row item-price-row">
+                    <div class="col col-75 text-left item-price">
+                        <span class="item-price-normal">{{product.products_price | currency}}</span>
+                        <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                    </div>
+                </div>
+                <!-- <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                    <span class="fa fa-check"></span>
+                </div> -->
+                <button class="button button-block button-royal" ng-click="removeProductFromList(product,wishList)" translate>REMOVE</button>
+            </div>
+            <ion-infinite-scroll on-infinite="loadMore()" ng-if="falseInfinte" distance="30%"> </ion-infinite-scroll>
+            <!--<p class="no-more-load text-center" ng-if="!falseInfinte">no more data to load</p>-->
+        </div>
+
+    </ion-content>
+    <!--<button class="button button-royal ion-arrow-up-c" style="position:absolute; bottom:10px; right:10px; border-radius: 25px;" ng-click="scrollToTop()"></button>-->
+</ion-view>

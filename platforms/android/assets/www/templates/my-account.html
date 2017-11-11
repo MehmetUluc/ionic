@@ -1,0 +1,77 @@
+<ion-view view-title="My Account">
+	<div class="bar bar-positive bar-header">
+		<div class="buttons">
+			<a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+		</div>
+		<h1 class="title" translate>My Account</h1>
+		<div class="buttons">
+			<a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+			<a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+		</div>
+	</div>
+	<ion-content class="account-panel has-header">
+
+		<div class="list list-account-image">
+			<div class="account-image">
+				<span class="fa fa-item fa-user" aria-hidden="true" ng-if="profilePicture==null"></span>
+
+				<span class="fa fa-item " aria-hidden="true" ng-if="profilePicture!=null">
+					<img class="image" src="{{profilePicture}}" alt="Pic">
+				</span>
+				<span class="fa fa-camera" ng-click="actionSheet()"></span>
+			</div>
+		</div>
+		<div class="list list-inset">
+			<form ng-submit="updateInfo(updateForm)" class="form" id="updateForm" name="updateForm">
+				<label class="item item-input">
+					<span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+					<input type="text" placeholder="{{'First Name'|translate}}"  ng-model="myAccountData.customers_firstname" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item item-input">
+					<span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+					<input type="text" placeholder="{{'Last Name'|translate}}"  ng-model="myAccountData.customers_lastname" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item item-input">
+					<span class="fa fa-phone placeholder-icon" aria-hidden="true"></span>
+					<input type="tel" placeholder="{{'Mobile'|translate}}"  ng-model="myAccountData.customers_telephone" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item item-input">
+					<span class="fa fa-calendar placeholder-icon" aria-hidden="true"></span>
+					<input type="date" placeholder="{{'Date of Birth'|translate}} : YYYY-MM-DD" ng-model="myAccountData.customers_dob"  required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<button class="button button-block button-royal" type="submit" translate>Update</button>
+			</form>
+		</div>
+
+
+
+		<div class="list list-inset list-password">
+			<h4 translate>Password</h4>
+			<form ng-submit="updatePassword(passwordUpdateForm)" class="form" id="passwordUpdateForm" name="passwordUpdateForm">
+				<label class="item item-input">
+					<span class="fa fa-lock placeholder-icon" aria-hidden="true"></span>
+					<input type="password" placeholder="{{'Current Password'|translate}}" ng-model="passwordData.currentPassword" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item item-input">
+					<span class="fa fa-lock placeholder-icon" aria-hidden="true"></span>
+					<input type="password" placeholder=" {{'New Password'|translate}}" ng-model="passwordData.customers_password" required>
+					<span class="fa fa-check-circle success-icon" ng-if="" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<button class="button button-block button-royal" type="submit" translate>Change Password</button>
+			</form>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,71 @@
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <a class="button button-clear" menu-toggle="left">
+            <img class="icon" src="img/menu-icon.svg" alt="icon">
+        </a>
+        <h1 class="title" translate> {{'Settings'|translate}}</h1>
+    </div>
+    <ion-content class="setting-panel content-panel has-header" ng-controller="selectLanguageController">
+        <!--setting-panel-->
+        <ul class="list">
+            <li class="item item-toggle">
+                {{'Turn on/off Local Notifications'|translate}}
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="local_noti_is_on" ng-change="turnOnOffNotification(local_noti_is_on)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+             <li class="item item-toggle">
+               {{' Turn on/off Notifications'|translate}}
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="togglePushNotification" ng-change="onOffPushNotification(togglePushNotification)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                {{'Show/Hide Add to cart button'|translate}}
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="cartButton" ng-change="hideShowCartButton(cartButton)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                {{'Show Footer Menu'|translate}}
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="menuFooter" ng-change="hideShowFooterTabs(menuFooter)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+         <div class="list list-links">
+                <a ng-click="showModal('selectLanguage')" class="item item-icon-right">
+                    {{'Change Language'|translate}}
+                    <i class="icon ion-android-arrow-forward"></i>
+                </a>
+            <a ng-click="openLink('http://ionicecommerce.com/')" class="item item-icon-right">
+                {{'Official Website'|translate}}
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+            <a ng-click="showModal('privacyPolicy')" class="item item-icon-right">
+                {{'Privacy Policy'|translate}}
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+            <a ng-click="showModal('refundPolicy')" class="item item-icon-right">
+                {{'Refund Policy'|translate}}
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+            <a ng-click="showModal('termServices')" class="item item-icon-right">
+                {{'Term and Services'|translate}}
+                <i class="icon ion-android-arrow-forward"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

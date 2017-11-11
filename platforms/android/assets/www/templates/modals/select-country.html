@@ -1,0 +1,44 @@
+<ion-modal-view>
+    <div class="bar bar-positive bar-header">
+         <div class="buttons">
+        <a class="button button-clear ion-android-arrow-back" ng-click="closeModal()"></a>
+         </div>
+        <h1 class="title" ng-if="enableCounties" translate>Country</h1>
+        <h1 class="title" ng-if="!enableCounties" translate>State</h1>
+    </div>
+    <ion-content class="search-panel content-panel has-header">
+        <div ng-if="enableCounties">
+            <div class="list list-inset list-form">
+                <div class="form">
+                    <label class="item item-input">
+                        <i class="fa fa-search placeholder-icon"></i>
+                        <input type="text" placeholder="Search" ng-model="s" autofocus>
+                    </label>
+                </div>
+            </div>
+
+            <ul class="list">
+                <li class="item" ng-repeat="country in countries|filter:s" ng-click="countrySelect(country)">
+                    {{country.countries_name}}
+                </li>
+                <li class="item" ng-click="countrySelect('other')"> other</li>
+            </ul>
+        </div>
+        <div ng-if="!enableCounties">
+            <div class="list list-inset list-form">
+                <div class="form">
+                    <label class="item item-input">
+                        <i class="fa fa-search placeholder-icon"></i>
+                        <input type="text" placeholder="Search" ng-model="sz">
+                    </label>
+                </div>
+            </div>
+            <ul class="list">
+                <li class="item" ng-repeat="zone in zones|filter:sz" ng-click="zoneSelect(zone)">
+                    {{zone.zone_name}}
+                </li>
+                <li class="item" ng-click="zoneSelect('other')"> other</li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-modal-view>

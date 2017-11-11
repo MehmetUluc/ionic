@@ -1,0 +1,140 @@
+.menu .bar .title{
+    left: initial !important;
+    right: 0 !important;
+}
+.bar .title + .button:last-child, 
+.bar > .button + .button:last-child, 
+.bar > .button.pull-right, 
+.bar .buttons.pull-right, 
+.bar .title + .buttons {
+    left: 5px;
+    right:auto;
+}
+.bar .button.ion-android-arrow-back{
+    transform: rotate(180deg);
+}
+.bar .buttons .button .badge{
+    left: 0;
+    right: initial;
+}
+
+.pull-right {
+    float: left !important;
+}
+.pull-left {
+    float: right !important;
+}
+
+.item-radio input {
+    left: initial; 
+    right: 0;
+}
+ .pane{
+    direction: rtl;
+}
+.item-select select {
+    right: initial;
+    left: 0;
+    padding: 0 16px 0 48px;
+}
+.item-select:after {
+    left: 16px;
+    right: initial;
+}
+
+.text-left.item-price{
+    text-align: right;
+}
+
+.login-panel .button{
+        font-size: 11px;
+}
+
+.products .item-single .item-discount, .products .list .item-thumbnail-left .item-discount {
+    left: 10px;
+    right: initial;
+}
+.products .item-single .item-new, .products .list .item-thumbnail-left .item-new {
+    right: 0;
+    left: initial;
+}
+.products.product-swiper, .products.recent-swiper, .products.topSellers, .products.deals, .products.mostLiked {
+    padding-right: 10px;
+}
+.home-page .product-panel .product-title-panel {
+    padding-right: 15px;
+}
+.category-panel .list-category .item-icon-right {
+    padding-left: 64px;
+    padding-right: 15px;
+}
+.category-panel .list-category .item .thumb {
+    left: 15px;
+    right: initial;
+}
+.form .item-input {
+    padding-right: 45px;
+}
+.form .item-input .fa.placeholder-icon {
+    right: 5px;
+    left: initial;
+}
+.item-input input {
+    padding-right: 0;
+    padding-left: 24px;
+    text-align: right;
+}
+.form .item-input .fa.success-icon, .form .item-input .fa.danger-icon {
+    left: 15px;
+    right: initial;
+}
+
+.bar .buttons, .bar .buttons.primary-buttons, .bar .buttons.secondary-buttons {
+    right: 5px;
+    position: absolute;
+}
+.card .item.item-input input, .list-inset .item.item-input input, .padding > .list .item.item-input input, .padding-horizontal > .list .item.item-input input {
+    padding-right: 0;
+}
+.search-panel .list .item{
+    text-align: right;
+}
+.shipping-panel .item-checkbox {
+    padding-right: 60px;
+}
+.account-panel .list h4 {
+    text-align: right;
+}
+.setting-panel .language-list .item .radio-content .item-content .icon {
+    right: 15px;
+    left: initial;
+}
+.setting-panel  .item-radio .radio-icon {
+    left: 0;
+}
+.side-panel .side-user-panel .fa {
+    right: 15px;
+    left: initial;
+}
+.side-panel .side-user-panel {
+    padding-right: 80px;
+    padding-left: 15px;
+}
+
+.order-panel .list .item .icon {
+    left: 15px;
+    right: initial;
+}
+.order-panel .list .item-icon-right {
+    padding-left: 54px;
+    padding-right: 15px;
+}
+.button.button-fab {
+    left: 15px;
+    right: initial;
+}
+
+.products .list .item-thumbnail-left .item-title {
+    padding-left: 30px;
+    padding-right: initial;
+}

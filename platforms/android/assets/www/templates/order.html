@@ -1,0 +1,190 @@
+<ion-view>
+	<div class="bar bar-positive bar-header">
+		<div class="buttons">
+			<a class="button button-clear ion-android-arrow-back" ng-click="goBack()"></a>
+			<!--<a class="button button-clear ion-android-arrow-back" ng-click="goToView('shippingMethod')"></a>-->
+		</div>
+		<h1 class="title" translate>Order</h1>
+		<div class="buttons">
+			<a class="button button-clear ion-android-close" ui-sref="menu.home"></a>
+		</div>
+	</div>
+	<ion-content class="order-panel content-panel has-header">
+		<div class="list">
+			<div class="item item-divider item-icon-right">
+				<h2 translate>Shipping Address</h2>
+				<a class="icon ion-edit" ng-click="goToView('shippingAddress')"></a>
+			</div>
+			<div class="item item-body">
+				{{orderDetail.delivery_street_address+', '+orderDetail.delivery_city+', '+orderDetail.delivery_state+' '+orderDetail.delivery_postcode+', '+orderDetail.delivery_country}}
+			</div>
+		</div>
+
+		<div class="list">
+			<div class="item item-divider item-icon-right">
+				<h2 translate>Billing Address</h2>
+				<a class="icon ion-edit" ng-click="goToView('billingAddress')"></a>
+			</div>
+			<div class="item item-body">
+				{{orderDetail.billing_street_address+', '+orderDetail.billing_city+', '+orderDetail.billing_state+' '+orderDetail.billing_postcode+', '+orderDetail.billing_country}}
+			</div>
+		</div>
+
+		<div class="list">
+			<div class="item item-divider item-icon-right">
+				<h2 translate>Shipping Method</h2>
+				<a class="icon ion-edit" ng-click="goToView('shippingMethod')"></a>
+			</div>
+			<div class="item item-body">
+				{{orderDetail.shipping_method}}
+			</div>
+		</div>
+
+		<div class="list list-product">
+			<div class="item item-divider item-icon-right">
+				<h2 translate>Products</h2>
+				<a class="icon ion-edit" href="#/menu/cart"></a>
+			</div>
+
+			<div ng-repeat="product in products">
+				<div class="item item-title">
+					<h2>
+						{{product.products_name}}<br>
+						<small>{{product.categories_name}}</small>
+					</h2>
+				</div>
+
+				<div class="item item-thumbnail-left">
+					<div class="item-image">
+						<img class="image" src="{{mainUrl+product.image}}" alt="image">
+					</div>
+					<p class="item-sub">{{'Price'|translate}}&nbsp;&nbsp;:&nbsp;<span class="pull-right">{{product.price| currency}}</span></p>
+					<p class="item-sub" ng-repeat="att in product.attributes">{{att.products_options_values+'&nbsp;'+att.products_options}}&nbsp;:<span class="pull-right">{{att.price_prefix +'&nbsp;'+ att.options_values_price+'&nbsp;'+currencySymbol}}</span></p>
+					<p class="item-sub">{{'Quantity'|translate}}&nbsp;:&nbsp;
+						<span class="pull-right">
+							<label>{{product.customers_basket_quantity}}</label>
+						</span>
+					</p>
+					<p class="item-sub item-price">{{'Total'|translate}}&nbsp;:&nbsp;<span class="pull-right">{{product.total| currency}}</span></p>
+				</div>
+				<!-- <div class="item item-attribute" ng-if="product.attributes.length!=0">
+					<ul class="item-attr">
+						<li ng-repeat="att in product.attributes">{{att.products_options}}&nbsp;:&nbsp;{{att.name}}</li>
+					</ul>
+				</div> -->
+			</div>
+		</div>
+
+		<div class="list list-product">
+			<div class="item item-divider item-icon-right">
+				<h2 translate>{{'SubTotal'|translate}}</h2>
+			</div>
+			<div class="item item-body">
+				<div class="item-sub">{{'Products Price'|translate}}<span class="pull-right">{{productsTotal| currency}}</span></div>
+				<div class="item-sub">{{'Tax'|translate}}<span class="pull-right">{{orderDetail.total_tax| currency}}</span></div>
+				<div class="item-sub">{{'Shipping Cost'|translate}}<span class="pull-right">{{orderDetail.shipping_cost| currency}}</span></div>
+				<div class="item-sub" ng-if="couponApplied == 1">{{'Discount'|translate}}<span class="pull-right">-{{discount| currency}}</span></div>
+				<div class="item-sub item-price">{{'Total'|translate}}<span class="pull-right">{{totalAmountWithDisocunt| currency}}</span></div>
+			</div>
+		</div>
+
+		<div class="list list-product" ng-repeat="coupon in couponArray">
+			<div class="item item-body">
+				<div class="item-sub">{{'Coupon Code'|translate}}<div class="pull-right">{{coupon.code}}</div></div>
+				<div class="item-sub">{{'Coupon Amount'|translate}}<div class="pull-right">{{coupon.amount}}</div></div>
+				<div class="item-sub" ng-if="coupon.discount_type == 'percent'">{{'A percentage discount for the entire cart'|translate}}</div>
+				<div class="item-sub" ng-if="coupon.discount_type == 'fixed_cart'">{{'A fixed total discount for the entire cart'|translate}}</div>
+				<div class="item-sub" ng-if="coupon.discount_type == 'fixed_product'">{{'A fixed total discount for selected products only'|translate}}</div>
+				<div class="item-sub" ng-if="coupon.discount_type == 'percent_product'">{{'A percentage discount for selected products only'|translate}}</div>
+				 <button class="button button-clear button-assertive button-small pull-right" ng-click="deleteCoupon(coupon.code)" translate>remove</button> 
+			</div>
+		</div>
+
+		<div class="list list-coupon">
+			<div class="item item-input-inset">
+				<label class="item-input-wrapper">
+				   	<input type="text" placeholder="{{'coupon code'|translate}}" ng-model="c">
+				</label>
+				<button class="button button-royal button-small" ng-click="getCoupon(c)" translate>
+					Coupon
+				</button>
+			</div>
+		</div>
+
+		<div class="list">
+			<div class="item item-divider item-icon-right">
+				<h2 translate>Order Notes</h2>
+			</div>
+			<label class="item">
+				<textarea type="text" class="textarea" placeholder="{{'Note to the buyer'|translate}}" ng-model="orderDetail.comments"></textarea>
+			</label>
+		</div>
+
+		<div class="list">
+			<label class="item item-input item-select">
+				<div class="input-label" translate>
+					Payment
+				</div>
+				<select ng-model="orderDetail.payment_method">
+				<option value="paypal" selected>Braintree Paypal</option>
+				<option value="card_payment">Braintree Card Payment</option>
+				<option value="stripe">Stripe Card Payment</option>
+				<option value="cash_on_delivery">Cash on Delivery</option>
+				</select>
+			</label>
+
+			<div class="braintree-paypal" ng-show="orderDetail.payment_method=='paypal'">
+				<div id="paypal-container"></div>
+			</div>
+
+			<div class="braintree-card" ng-show="orderDetail.payment_method=='card_payment'">
+				<form id="braintree-form" class="form">
+					<div id="error-message"></div>
+					<label class="hosted-fields--label" for="card-number" translate>Card Number</label>
+					<div class="hosted-field form-control" id="card-number" value="4111111111111111"></div>
+
+					<label class="hosted-fields--label" for="cvv" value="123">CVV</label>
+					<div class="hosted-field form-control" id="cvv"></div>
+
+					<label class="hosted-fields--label" for="expiration-date" translate>Expiration Date</label>
+					<div class="hosted-field form-control" id="expiration-date" value="10/2019"></div>
+
+					<input type="hidden" name="payment-method-nonce">
+					<input type="submit" id="braintreesubmit" class="button button-block button-royal" ng-click="submitOnClick()" value="Continue"
+					 disabled>
+				</form>
+			</div>
+
+
+
+			<div class="stripe-card" ng-show="orderDetail.payment_method=='stripe'">
+				<form class="form" stripe-form="stripeCallback" name="checkoutForm">
+					<label class="item item-input">
+						<span class="fa fa-credit-card placeholder-icon" aria-hidden="true"></span>
+						<input ng-model="number" class="form-control" placeholder="4111111111111111" payments-format="card" payments-validate="card" name="card" value="4111111111111111" ng-model="orderDetail.cc_number"/>
+					</label>
+					<label class="item item-input">
+						<span class="fa fa-calendar placeholder-icon" aria-hidden="true"></span>
+						<input ng-model="expiry" class="form-control" placeholder="10/2019" payments-format="expiry" payments-validate="expiry" value="10/2022" name="expiry" ng-model="orderDetail.cc_expires" />
+					</label>
+					<label class="item item-input">
+						<span class="fa fa-hashtag placeholder-icon" aria-hidden="true"></span>
+						<input ng-model="cvc" class="form-control" placeholder="123" payments-format="cvc" payments-validate="cvc" name="cvc" value="123"  ng-model="orderDetail.cc_type"/>
+					</label>
+					<button type="submit" class="button button-block button-royal">Continue</button>
+				</form>
+
+				<div class="error" ng-if="checkoutForm.card.$invalid" translate>Error: invalid card number!</div>
+				<div class="error" ng-if="checkoutForm.expiry.$invalid" translate>Error: invalid expiry date!</div>
+				<div class="error" ng-if="checkoutForm.cvc.$invalid" translate>Error: invalid cvc number!</div>
+			</div>
+		</div>
+
+		<div class="list">
+			<div class="cash-on-delivery" ng-show="orderDetail.payment_method=='cash_on_delivery'">
+				<button class="button button-block button-royal" ng-click="addOrder()" translate>Continue</button>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>

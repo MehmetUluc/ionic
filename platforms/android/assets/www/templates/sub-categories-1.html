@@ -1,0 +1,22 @@
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear ion-android-arrow-back" ng-click="goBack()"></a>
+        </div>
+        <h1 class="title">{{name}}</h1>
+        <div class="buttons">
+            <a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+    <ion-content class="category-panel content-panel has-header" lazy-scroll on-scroll="onScroll()" delegate-handle="subCategory">
+        <div class="col col-50 col-category-panel" ng-repeat="cat in categories" ng-click="getProducts(cat.name,cat.id)"
+            ng-if="mainId==cat.parent_id" style="background-image: url({{mainUrl+cat.image}})">
+            <div class="image-overlay"></div>
+            <div class="category-title">
+                <h4>{{cat.name}}</h4>
+                <p>{{cat.total_products}}   Products</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

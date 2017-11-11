@@ -1,0 +1,30 @@
+<ion-modal-view>
+    <div class="bar bar-positive bar-header">
+         <div class="buttons">
+        <a class="button button-clear ion-android-arrow-back" ng-click="hideModal('forget')"></a>
+         </div>
+        <h1 class="title" translate>Forgot Password</h1>
+    </div>
+    <ion-content class="login-panel has-header" ng-controller="forgetPasswardController">
+        <div class="list list-logo">
+            <img class="image" src="{{logo}}" alt="logo">
+        </div>
+        <div class="list list-inset">
+            <form  ng-submit="doLogin(loginForm)" class="form" name="loginForm">
+                <label class="error-code" ng-if="errorMessage!=''">
+                    <span class="icon ion-android-warning"></span>{{errorMessage}}
+                </label>
+                <label class="item-input">
+                    <span class="fa fa-envelope-o placeholder-icon" aria-hidden="true"></span>
+                    <input type="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="{{ 'Email' | translate }}" ng-model="loginData.customers_email_address" name="customers_email_address" required>
+                    <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+                    <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+                </label>
+                <button class="button button-block button-royal" type="submit" translate>Send</button>
+                
+            </form>
+        </div>
+      
+      
+    </ion-content>
+</ion-modal-view>

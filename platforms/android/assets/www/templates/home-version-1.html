@@ -1,0 +1,283 @@
+<!-- Main Home View, Controller name homeController  -->
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+        </div>
+        <h1 class="title title-page-logo">
+            <img class="image" src="{{logoMini}}" alt="logo"/>ECOMERECE
+        </h1>
+        <div class="buttons">
+            <a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+            <a class="button button-clear ion-bag" id="cart" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+
+    <div class="tabs-all-panel tabs-all-top-panel" ng-class="{'invisible':!showHeaderTabs}">
+        <div class="tabs-all-swiper swiper-container" ng-class="{'disable':serviceRunning}">
+            <div class="swiper-wrapper" ng-disabled="true">
+                <div class="swiper-slide" ng-class="{'tabs-swiper-slide-active':catId == ''}" ng-click="setCategoryId('')" translate>All</div>
+                <div class="swiper-slide" ng-class="{'tabs-swiper-slide-active':catId == tab.id}" ng-repeat="tab in categories| filter : tabFilter"
+                    ng-click="setCategoryId(tab.id)">{{tab.name}}</div>
+            </div>
+        </div>
+    </div>
+
+    <ion-content class="home-page content-panel has-header" on-scroll="onScroll()" delegate-handle="home" scrollbar-y="false"
+        lazy-scroll on-release="lazyScroll()">
+        <div class="carousal">
+            <div class="home-swiper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="image in imageSliderArray" on-finish-render="ngRepeatFinished">
+                        <img src="{{mainUrl+image.image}}" alt="image" ng-click="imageClick(image)">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="product-panel">
+            <ion-tabs class="tabs-top tabs-striped tabs-stable">
+                <ion-tab title="{{'Top Sellers' |translate}}" on-select="changeTab('topSellers')"></ion-tab>
+                <ion-tab title="{{'Deals' |translate}}" on-select="changeTab('special')"></ion-tab>
+                <ion-tab title="{{'Most Liked' |translate}}" on-select="changeTab('mostLiked')"></ion-tab>
+            </ion-tabs>
+
+            <div class="products product-swiper swiper-container " ng-if="tab=='topSellers'">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="product in topSellers" on-finish-render="ngRepeatFinished2">
+                        <div class="item-single">
+                            <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+
+                            <div class="item-thumb" ng-click="showProductDetail(product)">
+                                <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+                                <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
+                                <!--<img data-src="{{mainUrl+product.products_image}}" class="swiper-lazy">
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>-->
+                            </div>
+                            <h6 class="item-title">{{product.products_name}}</h6>
+                            <div class="row item-price-row">
+                                <div class="col col-75 text-left item-price">
+                                    <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                                </div>
+                                <div class="col col-25 text-right item-like">
+                                    <a class="fa " ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+                                </div>
+                            </div>
+                            <button class="button button-block button-royal" ng-click="addToCart(product);" ng-if="settings.cartButton==true && product.products_quantity!=0"
+                                translate>ADD TO CART</button>
+                            <button class="button button-block button-assertive" ng-if="settings.cartButton==true && product.products_quantity==0" translate>OUT OF STOCK</button>
+                            <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                                <span class="fa fa-check"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide last-slide" ng-click="openProducts('Top Seller','top seller')">
+                        <div class="item-single">
+                            <div class="item-thumb">
+                                <img class="image" src="img/right-chevron.svg">
+                            </div>
+                            <h6 class="item-title text-center">View all</h6>
+                            <div class="row item-price-row" style="visibility: hidden;">
+                                <div class="col col-75 text-left item-price"> 
+                                </div>
+                                <div class="col col-25 text-right item-like">
+                                </div>
+                            </div>
+                            <button class="button button-block button-royal" style="visibility: hidden;" ng-if="settings.cartButton==true && product.products_quantity!=0"
+                                translate>ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--==============================================================================================================-->
+            <div class="products product-swiper swiper-container " ng-if="tab=='special'">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="product in special" on-finish-render="ngRepeatFinished2">
+                        <div class="item-single">
+                            <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+                            
+                            <div class="item-thumb" ng-click="showProductDetail(product)">
+                                <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+                                <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
+                                <!--<img data-src="{{mainUrl+product.products_image}}" class="swiper-lazy">
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>-->
+                            </div>
+                            <h6 class="item-title">{{product.products_name}}</h6>
+                            <div class="row item-price-row">
+                                <div class="col col-75 text-left item-price">
+                                    <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                                </div>
+                                <div class="col col-25 text-right item-like">
+                                    <a class="fa " ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+                                </div>
+                            </div>
+                            <button class="button button-block button-royal" ng-click="addToCart(product);" ng-if="settings.cartButton==true && product.products_quantity!=0"
+                                translate>ADD TO CART</button>
+                            <button class="button button-block button-assertive" ng-if="settings.cartButton==true && product.products_quantity==0" translate>OUT OF STOCK</button>
+                            <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                                <span class="fa fa-check"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide last-slide" ng-click="openProducts('Special Deals','special')">
+                        <div class="item-single">
+                            <div class="item-thumb">
+                                <img class="image" src="img/right-chevron.svg">
+                            </div>
+                            <h6 class="item-title text-center">View all</h6>
+                            <div class="row item-price-row" style="visibility: hidden;">
+                                <div class="col col-75 text-left item-price"> 
+                                </div>
+                                <div class="col col-25 text-right item-like">
+                                </div>
+                            </div>
+                            <button class="button button-block button-royal" style="visibility: hidden;" ng-if="settings.cartButton==true && product.products_quantity!=0"
+                                translate>ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--==============================================================================================================-->
+            <div class="products product-swiper swiper-container " ng-if="tab=='mostLiked'">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="product in mostLiked" on-finish-render="ngRepeatFinished2">
+
+                        <div class="item-single">
+                            <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+                            
+                            <div class="item-thumb" ng-click="showProductDetail(product)">
+                                <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+                                <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
+                                <!--<img data-src="{{mainUrl+product.products_image}}" class="swiper-lazy">
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>-->
+                            </div>
+                            <h6 class="item-title">{{product.products_name}}</h6>
+                            <div class="row item-price-row">
+                                <div class="col col-75 text-left item-price">
+                                    <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                                </div>
+                                <div class="col col-25 text-right item-like">
+                                    <a class="fa " ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+                                </div>
+                            </div>
+                            <button class="button button-block button-royal" ng-click="addToCart(product);" ng-if="settings.cartButton==true && product.products_quantity!=0"
+                                translate>ADD TO CART</button>
+                            <button class="button button-block button-assertive" ng-if="settings.cartButton==true && product.products_quantity==0" translate>OUT OF STOCK</button>
+                            <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                                <span class="fa fa-check"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide last-slide" ng-click="openProducts('Most Liked','most liked')">
+                        <div class="item-single">
+                            <div class="item-thumb">
+                                <img class="image" src="img/right-chevron.svg">
+                            </div>
+                            <h6 class="item-title text-center">View all</h6>
+                            <div class="row item-price-row" style="visibility: hidden;">
+                                <div class="col col-75 text-left item-price"> 
+                                </div>
+                                <div class="col col-25 text-right item-like">
+                                </div>
+                            </div>
+                            <button class="button button-block button-royal" style="visibility: hidden;" ng-if="settings.cartButton==true && product.products_quantity!=0"
+                                translate>ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-panel" ng-if="recentViewedArray.length!=0">
+            <h5 class="product-title-panel" translate>Recently Viewed</h5>
+            <div class="products recent-swiper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="product in recentViewedArray" on-finish-render="ngRepeatFinished3">
+                        <div class="item-single">
+                            <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+                            
+                            <div class="item-thumb" ng-click="showProductDetail(product)">
+                                <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+                                <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
+                                <!--<img data-src="{{mainUrl+product.products_image}}" class="swiper-lazy">
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>-->
+                            </div>
+                            <h6 class="item-title">{{product.products_name}}</h6>
+                            <div class="row item-price-row">
+                                <div class="col col-75 text-left item-price">
+                                    <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                                    <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                                </div>
+                                <div class="col col-25 text-right item-like">
+                                    <a class="fa " ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+                                </div>
+                            </div>
+
+                            <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                                <span class="fa fa-check"></span>
+                            </div>
+                            <button class="button button-block button-royal" ng-click="removeRecent(product.products_id)" translate>REMOVE</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="scrollTo"></div>
+        <div class="tabs-all-panel sticky-tabs">
+            <div class="tabs-all-swiper swiper-container" ng-class="{'disable':serviceRunning}">
+                <div class="swiper-wrapper" ng-disabled="true">
+                    <div class="swiper-slide" ng-class="{'tabs-swiper-slide-active':catId == ''}" ng-click="setCategoryId('')" translate>All</div>
+                    <div class="swiper-slide" ng-class="{'tabs-swiper-slide-active':catId == tab.id}" ng-repeat="tab in categories| filter : tabFilter"
+                        on-finish-render="ngRepeatFinished4" ng-click="setCategoryId(tab.id)">{{tab.name}}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="products products-panel">
+            <div class="item-single item-single-both col col-50" ng-repeat="product in products track by $index">
+                <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+                
+                <div class="item-thumb" ng-click="showProductDetail(product)">
+                    <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+                    <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
+                </div>
+                <h6 class="item-title">{{product.products_name}}</h6>
+
+                <div class="row item-price-row">
+                    <div class="col col-75 text-left item-price">
+                        <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                        <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                        <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                    </div>
+                    <div class="col col-25 text-right item-like">
+                        <a class="fa " ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+                    </div>
+                </div>
+                <button class="button button-block button-royal" ng-click="addToCart(product);" ng-show="settings.cartButton==true && product.products_quantity!=0"
+                    translate>ADD TO CART</button>
+                <button class="button  button-block button-assertive" ng-if="settings.cartButton==true && product.products_quantity==0" translate>OUT OF STOCK</button>
+                <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                    <span class="fa fa-check"></span>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="falseInfinte" distance="10%"> </ion-infinite-scroll>
+        <!--<p class="no-more-load text-center" ng-if="!falseInfinte"> no more data to load</p>-->
+    </ion-content>
+    <button class="button button-positive button-fab" ng-click="scrollToTop()" ng-hide="hideScrollButton"><span class="icon ion-android-arrow-up"></span></button>
+</ion-view>

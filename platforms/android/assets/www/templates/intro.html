@@ -1,0 +1,49 @@
+<ion-view view-title="Intro">
+    <ion-content class="intro-page text-center">
+        
+        <div class="swiper-container intro-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide intro-slide" on-finish-render="ngRepeatFinished">
+                    <img class="image" src="img/slides_1.gif" alt="image"/>
+                    <span class="icon ion-android-home"></span>
+                    <h2 class="title">Home Page</h2>
+                    <span class="slide-text">lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</span>
+                    <button type="button" class="button button-outline button-royal" ng-click="startApp()" translate>Skip</button>
+                </div>
+                <div class="swiper-slide intro-slide" on-finish-render="ngRepeatFinished">
+                    <img class="image" src="img/slides_2.gif" alt="image"/>
+                    <span class="icon ion-android-list"></span>
+                    <h2 class="title">Category Page</h2>
+                    <span class="slide-text">lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</span>
+                    <button type="button" class="button button-outline button-royal" ng-click="startApp()" translate>Skip</button>
+                </div>
+                <div class="swiper-slide intro-slide" on-finish-render="ngRepeatFinished">
+                    <img class="image" src="img/slides_3.gif" alt="image"/>
+                    <span class="icon ion-android-apps"></span>
+                    <h2 class="title">Shop Page</h2>
+                    <span class="slide-text">lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</span>
+                    <button type="button" class="button button-outline button-royal" ng-click="startApp()" translate>Skip</button>
+                </div>
+                <div class="swiper-slide intro-slide" on-finish-render="ngRepeatFinished">
+                    <img class="image" src="img/slides_4.gif" alt="image"/>
+                    <span class="icon ion-android-cart"></span>
+                    <h2 class="title">Cart Page</h2>
+                    <span class="slide-text">lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</span>
+                    <button type="button" class="button button-outline button-royal" ng-click="startApp()" translate>Skip</button>
+                </div>
+                <div class="swiper-slide intro-slide" on-finish-render="ngRepeatFinished">
+                    <img class="image" src="img/slides_5.gif" alt="image"/>
+                    <span class="icon ion-android-clipboard"></span>
+                    <h2 class="title">Order Page</h2>
+                    <span class="slide-text">lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</span>
+                    <button type="button" class="button button-outline button-royal" ng-click="startApp()" translate>Get Started!</button>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <!--<div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>-->
+        </div>
+    </ion-content>
+</ion-view>

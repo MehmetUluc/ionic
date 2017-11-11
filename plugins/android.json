@@ -8,64 +8,60 @@
     },
     "installed_plugins": {
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         },
         "cordova-plugin-datepicker": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         },
         "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         },
         "cordova-plugin-googleplus": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "cordova-plugin-x-toast": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "phonegap-plugin-push": {
-            "SENDER_ID": "1044432838358",
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
-        "de.appplant.cordova.plugin.local-notification": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravelDemo_2"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravelDemo_2"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         }
     },
     "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
-        },
         "cordova-plugin-app-event": {
-            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravelDemo_2"
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.vectorCoder.tacettin"
         }
     }
 }

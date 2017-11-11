@@ -1,0 +1,55 @@
+<ion-modal-view>
+    <div class="bar bar-positive bar-header">
+         <div class="buttons">
+        <a class="button button-clear button-light ion-android-arrow-back" ng-click="hideModal('updateShipping')"></a>
+         </div>
+        <h1 class="title" translate>Shipping Address</h1>
+    </div>
+
+    <ion-content class="shipping-panel content-panel has-header" ng-controller="updateShippingAddressController">
+
+        <form class="form" name="shippingForm">
+
+            <div class="list list-inset">
+
+                <label class="item item-input">
+                	<span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+                    <input type="text" placeholder="{{'First Name'|translate}}" ng-model="shippingData.entry_firstname" name="entry_firstname" required="required">
+                </label>
+                <label class="item item-input">
+                	<span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+               		<input type="text" placeholder="{{'Last Name'|translate}}" ng-model="shippingData.entry_lastname" name="entry_lastname" required="required">
+                </label>
+                <label class="item item-input">
+                	<span class="fa fa-map-marker placeholder-icon" aria-hidden="true"></span>
+                	<input type="text" placeholder="{{'Address'|translate}}" ng-model="shippingData.entry_street_address" name="entry_street_address" required="required">
+                </label>
+
+                <label class="item item-input" ng-click="openModal('country')">
+				  <span class="fa fa-globe placeholder-icon" aria-hidden="true"></span>
+				  <input readonly type="text" placeholder="{{'Country'|translate}}" ng-model="shippingData.entry_country_name" required="required">
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+
+				<label class="item item-input" ng-click="openModal('zone')">
+				  <span class="fa fa-flag-checkered placeholder-icon" aria-hidden="true"></span>
+				  <input readonly  type="text" placeholder="{{'Zone'|translate}}" ng-model="shippingData.delivery_zone">
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+                <label class="item item-input">
+                	<span class="fa fa-building-o placeholder-icon" aria-hidden="true"></span>
+                	<input type="text" placeholder="{{'City'|translate}}" ng-model="shippingData.entry_city" name="entry_city" required>
+                </label>
+                <label class="item item-input">
+                	<span class="fa fa-list-alt placeholder-icon" aria-hidden="true"></span>
+                	<input type="text" placeholder="{{'Post code'|translate}}" ng-model="shippingData.entry_postcode" name="entry_postcode" required>
+                </label>
+                <button class="button button-block button-royal" ng-click="updateShippingAddress(shippingForm)" ng-if="showButton" translate>Update Address</button>
+                <button class="button button-block button-royal" ng-click="addShippingAddress(shippingForm)" ng-if="!showButton" translate>Save Address</button>
+            </div>
+
+        </form>
+    </ion-content>
+</ion-modal-view>

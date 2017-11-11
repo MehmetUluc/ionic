@@ -1,0 +1,72 @@
+<ion-modal-view>
+	<div class="bar bar-positive bar-header">
+		 <div class="buttons">
+		<a class="button button-clear ion-android-arrow-back" ng-click="hideModal('createNewAccount')"></a>
+		</div>
+		<h1 class="title" translate>Create an Account</h1>
+	</div>
+
+	<ion-content class="login-panel has-header" ng-controller="createNewAccountController">
+
+		<div class="list list-account-image">
+			<div class="account-image">
+				<span class="fa fa-item fa-user " aria-hidden="true" ng-if="profileImage==null"></span>
+				<span class="fa fa-item " aria-hidden="true" ng-if="profileImage!=null">
+					<img class="image" src="{{profileImage}}" alt="Pic">
+				</span>
+
+				<span class="fa fa-camera" ng-click="actionSheet()"></span>
+			</div>
+		</div>
+
+		<div class="list list-inset">
+			
+			<form class="form" name="form" ng-submit="createNewAccount(form)">
+				<label class="error-code" ng-if="errorMessage!=''">
+					<span class="icon ion-android-warning"></span>{{errorMessage}}
+				</label>
+				<label class="item-input">
+					<span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+					<input type="text" placeholder="{{'First Name'|translate}}" ng-model="newAccountData.customers_firstname" name="customers_firstname" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item-input">
+					<span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+					<input type="text" placeholder="{{'Last Name'|translate}}" ng-model="newAccountData.customers_lastname" name="customers_lastname" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item-input">
+					<span class="fa fa-envelope-o placeholder-icon" aria-hidden="true"></span>
+					<input type="email" placeholder="{{'Email'|translate}}" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="newAccountData.customers_email_address" name="customers_email_address" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item-input">
+					<span class="fa fa-lock placeholder-icon" aria-hidden="true"></span>
+					<input type="password" placeholder="{{'Password'|translate}}" ng-model="newAccountData.customers_password" name="customers_password" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				<label class="item-input">
+					<span class="fa fa-phone placeholder-icon" aria-hidden="true"></span>
+					<input type="number" placeholder="{{'Mobile'|translate}}" ng-model="newAccountData.customers_telephone" name="customers_telephone" required>
+					<span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+					<span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+				{{errorMessage}}
+				<span>{{'Creating an account means you’re okay with our'|translate}}
+					<a ng-click="showModal('termServices')" translate>Term and Services</a>,
+					<a ng-click="showModal('privacyPolicy')" translate>Privacy Policy</a> {{'and'|translate}}
+					<a ng-click="showModal('refundPolicy')" translate>Refund Policy</a>
+				</span>
+				<button class="button button-block button-royal" type="submit" translate>Register</button>
+			</form>
+		</div>
+		<div class="list list-login-bottom">
+			<p class="login-bottom-text" translate>Already Memeber?</p>
+			<a class="login-bottom-button" ng-click="hideModal('createNewAccount')" translate>Login</a>
+		</div>
+	</ion-content>
+</ion-modal-view>

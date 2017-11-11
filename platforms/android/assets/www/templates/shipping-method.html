@@ -1,0 +1,23 @@
+<ion-view>
+	<div class="bar bar-positive bar-header">
+		<a class="button button-clear ion-android-arrow-back" href="#/billingAddress"></a>
+		<h1 class="title" translate>Shipping method</h1>
+		<div class="buttons">
+			<!--<a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>-->
+			<a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+		</div>
+	</div>
+	<ion-content class="shipping-method content-panel has-header has-footer">
+		<form class="form" name="$parent.$parent.form">
+			<div class="list" ng-repeat="m in shippingMethod" ng-if="m.services.length!=0">
+				<div class="item item-divider"><h2>{{m.name}}</h2></div>
+				<ion-radio ng-repeat="s in m.services" ng-model="$parent.$parent.shipping" ng-value="s" ng-change="setMethod(s)">
+					<h2>{{s.name+' ---- '+s.rate+' '+s.currencyCode}}</h2>
+				</ion-radio>
+			</div>
+		</form>
+	</ion-content>
+	<div class="bar bar-footer bar-cstm">
+		<button class="button button-block button-royal" ng-click="addShippingMethod(form)" translate>Next</button>
+	</div>
+</ion-view>

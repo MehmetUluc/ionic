@@ -1,0 +1,69 @@
+<ion-view>
+	<div class="bar bar-positive bar-header">
+		<div class="buttons">
+			<a class="button button-clear ion-android-arrow-back" ng-click="goBack()"></a>
+		</div>
+		<h1 class="title" translate>Product Details</h1>
+		<div class="buttons">
+			<a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+			<a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+		</div>
+	</div>
+
+	<ion-content class="product-detail has-header has-footer">
+		<div class="carousal">
+			<div class="product-detail-swiper swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="{{mainUrl+product.products_image}}">
+					</div>
+					<div class="swiper-slide" ng-repeat="images in product.images">
+						<img data-src="{{mainUrl+images.image}}" class="swiper-lazy">
+						<div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div class="list product-name-list">
+			<span class="p-tag-new" ng-if="checkProduct(product.products_date_added)" translate>New</span>
+			<h4>{{product.products_name}}<br><small>{{product.categories_name}}</small></h4>
+			
+			<p>{{'Likes'|translate}}&nbsp;({{product.products_liked}})</p>
+		</div>
+		<div class="list product-price-list">
+			<span class="p-tag-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}&nbsp;{{'OFF'|translate}}</span>
+
+			<p>
+				<span class="item-price-discount">{{discount_price | currency}}</span>
+				<span class="item-price-normal" ng-if="product.discount_price==null">{{product_price | currency}}</span>
+				<span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product_price | currency}}</span>
+				<span class="item-stock" ng-if="product.products_quantity==0" translate>Out of Stock</span>
+				<span class="item-stock" ng-if="product.products_quantity!=0" translate>In Stock</span>
+
+				<span class="pull-right item-like">
+					<span class="fa fa-share-alt" ng-click="socialShare(product.products_description,mainUrl+product.products_image,mainUrl+product.products_image)"></span>
+					<a class="fa " ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+				</span>
+			</p>
+			<button class="button button-block button-royal" ng-if="product.products_quantity!=0" ng-click="addToCart(product,attributes);"
+			 translate>Add to Cart</button>
+			<button class="button  button-block button-assertive" ng-if="product.products_quantity==0" translate>OUT OF STOCK</button>
+		</div>
+		<div class="list product-desc-list" ng-if="product.products_description!=null">
+			<h4 translate>Product Description</h4>
+			<div class="product-describtion" ng-bind-html="product.products_description"></div>
+		</div>
+
+		<div class="list product-attribute-list" ng-if="product.attributes.length!=0">
+			<h4 translate>Techincal details</h4>
+			<form id="form" class="form">
+				<label class="item item-input item-select" ng-repeat="att in product.attributes">
+					<div class="input-label" ng-init="valuee=att.values[0]">{{att.option.name}}</div>
+					<select ng-model="valuee" ng-change="fillAttribues(valuee,att.option.id)" ng-options="val as val.value+' '+val.price_prefix+val.price+' '+currencySymbol for val in att.values">
+					</select>
+				</label>
+			</form>
+		</div>
+	</ion-content>
+</ion-view>
