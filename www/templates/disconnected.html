@@ -1,0 +1,16 @@
+<ion-view view-title="Disconnected">
+  <div class="bar bar-positive bar-header myclass">
+    
+    <h1 class="title title-page-logo">
+        <img class="image" src="{{logoMini}}" alt="logo"/>ECOMERECE
+    </h1>
+  </div>
+  <ion-content class="padding text-center">
+    <div class="empty-content" ng-if="cartArray.length==0">
+      <div class="empty-content-inner">
+        <span class="icon ion-wifi"></span>
+        <h4 translate>Please connect to the internet</h4>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,158 @@
+<ion-side-menus enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+        <ion-nav-view name="menuContent">
+        </ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu class="left" side="left">
+        <ion-header-bar class="bar-positive">
+            <h1 class="title title-menu-logo"><img class="image" src="{{logoMini}}" alt="logo"/>ECOMERECE</h1>
+            <a class="button button-clear ion-ios-world-outline" ng-click="showModal('selectLanguage')"></a>
+        </ion-header-bar>
+
+        <ion-content class="side-panel ">
+            <!--this will be displayed before login-->
+            <div class="side-user-panel" ng-if="customerData==null">
+                <a href="" ng-click="showModal('login')">
+                    <span class="fa fa-user" aria-hidden="true"></span>
+                    <div class="side-user-panel-inner">
+                        <h4 translate>Login & Register</h4>
+                        <p translate>Please login or create an account for free</p>
+                    </div>
+                </a>
+            </div>
+
+            <!--this will be displayed after login-->
+            <div class="side-user-panel" ng-if="customerData!=null">
+                <span class="fa" aria-hidden="true" menu-close ui-sref="menu.myAccount">
+                <img class="image" src="{{mainUrl+customerData.customers_picture}}" alt="Pic"></span>
+                <div class="side-user-panel-inner">
+                    <h4>{{customerData.customers_firstname +"&nbsp;"+customerData.customers_lastname}}</h4>
+                    <p style="margin-bottom: 7px;">{{customerData.customers_email_address}}</p>
+                    <h4 ng-click="logOut()" translate>Log Out</h4>
+                </div>
+
+            </div>
+
+            <ion-list class="side-menu">
+
+                <div ng-repeat="group in groups">
+                    <div class="item item-icon-left item-icon-right item-divide" ng-click="toggleGroup(group)" ng-class="{'active':isGroupShown(group) || currentState==group.url}">
+                         <span class="icon {{group.icon}}"></span>
+                         <span class="icon" ng-class="isGroupShown(group)? 'ion-minus' : 'ion-plus'"></span>{{group.name|translate}}
+                    </div>
+                    <div class="item item-accordion hideEffect" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
+                        <a class="item item-icon-left item-divide" menu-close ng-click="openTemplate(group.url,item);" ng-class="{'item-active':group.url+item==selected}">
+
+                            <span class="icon ion-ios-minus-empty" aria-hidden="true"></span>{{group.name|translate}}{{'-style-'+item}}
+                        </a>
+                    </div>
+                </div>
+
+                <a class="item item-icon-left item-icon-right item-divide" ng-click="showShopListFunc()" ui-sref-active="item-active">
+                    <span class="icon fa fa-truck"></span> {{'Shop'|translate}}
+                    <span class="icon" ng-class="showShopList? 'ion-minus' : 'ion-plus'"></span>
+                </a >
+
+                <div class="item item-accordion" ng-show="showShopList">
+                    <a class="item item-icon-left item-divide" menu-close ng-click="openProducts('Newest','newest')" ui-sref-active="item-active">
+                        <span class="icon ion-ios-minus-empty" aria-hidden="true"></span>{{'Newest'|translate}}
+                    </a>
+                    <a class="item item-icon-left item-divide" menu-close ng-click="openProducts('Top Seller','top seller')" ui-sref-active="item-active">
+                        <span class="icon ion-ios-minus-empty" aria-hidden="true"></span>{{'Top Seller'|translate}}
+                    </a>
+                    <a class="item item-icon-left item-divide" menu-close ng-click="openProducts('Deals','special')" ui-sref-active="item-active">
+                        <span class="icon ion-ios-minus-empty" aria-hidden="true"></span>{{'Deals'|translate}}
+                    </a>
+                    <a class="item item-icon-left item-divide" menu-close ng-click="openProducts('Most Liked','most liked')" ui-sref-active="item-active">
+                        <span class="icon ion-ios-minus-empty" aria-hidden="true"></span>{{'Most Liked'|translate}}
+                    </a>
+                </div>
+
+                <!--ng-class="{'item-active':currentState=='menu.wishList'}"-->
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.wishList" ui-sref-active="item-active" ng-if="customerData!=null">
+                    <span class="icon ion-heart" aria-hidden="true"></span>{{'My Wish List'|translate}}
+                </a>
+                <!--ng-class="{'item-active':currentState=='menu.myAccount'}"-->
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.myAccount" ui-sref-active="item-active" ng-if="customerData!=null">
+                    <span class="icon ion-android-lock" aria-hidden="true"></span>{{'My Account'|translate}}
+                </a>
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.allShippingAddress" ui-sref-active="item-active" ng-if="customerData!=null">
+                    <span class="icon ion-android-car" aria-hidden="true"></span>{{'Shipping Address'|translate}}
+                </a>
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.myOrders" ui-sref-active="item-active" ng-if="customerData!=null">
+                    <span class="icon ion-bag" aria-hidden="true"></span>{{'My Orders'|translate}}
+                </a>
+
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.contact" ui-sref-active="item-active">
+                    <span class="icon ion-ios-telephone" aria-hidden="true"></span>{{'Contact Us'|translate}}
+                </a>
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.aboutUs" ui-sref-active="item-active">
+                    <span class="icon ion-android-alert" aria-hidden="true"></span>{{'About Us'|translate}}
+                </a>
+                 <a class="item item-icon-left item-divide" menu-close ui-sref="menu.laravelCategories" ui-sref-active="item-active">
+                    <span class="icon ion-social-wordpress" aria-hidden="true"></span>{{'News'|translate}}
+                </a>
+                <a class="item item-icon-left item-divide" menu-close ui-sref="intro" ui-sref-active="item-active">
+                    <span class="icon ion-ios-book" aria-hidden="true"></span>{{'Intro'|translate}}
+                </a>
+                <a class="item item-icon-left" menu-close ui-sref="menu.settings" ui-sref-active="item-active">
+                    <span class="icon ion-gear-a" aria-hidden="true"></span>{{'Settings'|translate}}
+                </a>
+
+            </ion-list>
+
+        </ion-content>
+    </ion-side-menu>
+
+
+    <!-- right menu for filter -->
+    <ion-side-menu class="right" side="right">
+        <div class="bar bar-header bar-positive">
+            <a class="button button-clear ion-android-close" menu-close></a>
+            <h1 class="title" translate>Filters</h1>
+        </div>
+        <ion-content class="filter-side-panel has-header has-footer" ng-controller="filterController">
+            <form ng-submit="" id="filterForm">
+                <div class="list">
+                    <div class="item item-price-range">
+                        <h4 class="filter-title" translate>Price Range</h4>
+                        <div class="item"><input type="text" id="priceBar" name="priceBar" value="" /></div>
+                    </div>
+                    <div class="item" ng-repeat="filter in filters" ng-if="filter.values.length>0">
+                        <h4 class="filter-title">{{filter.option.name}}</h4>
+                        <ion-checkbox ng-model="value" ng-repeat="options in filter.values" ng-change="fillFilterArray(value,filter.option.name,options.value)">
+                            {{options.value}}
+                        </ion-checkbox>
+                    </div>
+
+                </div>
+            </form>
+        </ion-content>
+        <div class="bar bar-footer">
+            <button class="button button-outline button-positive" ng-click="clearFilter(1)" translate>Reset</button>
+            <h1 class="title"></h1>
+            <button class="button button-royal" ng-click="applyFilterProductPage()" ng-if="productPage" translate>Apply</button>
+            <button class="button button-royal" ng-click="applyFilter()" ng-if="!productPage" translate>Apply</button>
+        </div>
+    </ion-side-menu>
+
+    <div class="tabs tabs-icon-top tabs-stable" ng-show="footerTabsView" ng-if="showFooterTabs">
+
+        <a class="tab-item" href="#/menu/home" ng-class="{'active': currentState=='menu.home'}">
+            <i class="icon ion-home"></i> {{'Home'|translate}}
+        </a>
+        <a class="tab-item" href="#/menu/categories" ng-class="{'active': currentState=='menu.categories' || currentState=='menu.subcategories'}">
+            <i class="icon ion-grid"></i> {{'Categories'|translate}}
+        </a>
+        <a class="tab-item" ng-click="openProducts('Newest','newest')" ng-class="{'active': currentState=='menu.products'}">
+            <i class="icon fa fa-truck"></i> {{'Shop'|translate}}
+        </a>
+        <a class="tab-item" href="#/menu/laravelCategories" ng-class="{'active': currentState=='menu.laravelCategories'}">
+            <i class="icon ion-social-wordpress"></i> {{'News'|translate}}
+        </a>
+        <a class="tab-item" menu-toggle="left" ng-class="{'active': currentState=='menu'}">
+            <i class="icon ion-android-more-vertical"></i> {{'Menu'|translate}}
+        </a>
+    </div>
+</ion-side-menus>">

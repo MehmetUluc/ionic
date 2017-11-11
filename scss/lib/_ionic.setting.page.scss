@@ -1,0 +1,67 @@
+.setting-panel{
+	.list{
+		.item{
+			color: $secondary-text-color-dark;
+			font-size: $font-size-xbase;
+
+			.toggle{
+				top: 18px;
+
+				.track{
+					height: 15px;
+    				width: 32px;
+					border-width: 0;
+					background-color:lighten($input-bg, 5%);
+
+					.handle{
+						width: 22px;
+						height: 22px;
+						top: 2px;
+						left: 4px;
+						box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.10);
+						background-color:darken($input-bg, 2%);
+					}
+				}
+				.ng-not-empty + .track{
+					background-color: $primary-color-light;
+				}
+				.ng-not-empty + .track{
+					.handle{
+						background-color: $positive;
+					}
+				}
+			}
+			.toggle input:checked + .track .handle {
+				-webkit-transform: translate3d(12px, 0, 0);
+				transform: translate3d(12px, 0, 0);
+			}
+		}
+
+		.icon{
+			font-size:$font-size-xxlarge;
+			color: $secondary-text-color;
+		}
+	}
+
+	.language-list{
+		.item{
+			.radio-content{
+				.item-content {
+					padding-left: 60px;
+					h2{
+						font-size:$font-size-xbase;
+					}
+					.icon{
+						position: absolute;
+						left: 15px;
+						top: 14px;
+					}
+				}
+				.radio-icon {
+					font-size:$font-size-large;
+					color: $secondary-text-color;
+				}
+			}
+		}
+	}
+}

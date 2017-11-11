@@ -1,0 +1,145 @@
+
+.side-panel{
+	background-color: $white;
+	
+	.side-user-panel{
+		background-color:darken($positive, 5%);
+		background-image: url(../img/icons.svg);
+		background-size: cover;
+    	background-repeat: no-repeat;
+		padding-left:80px;
+		display:block;
+		padding-right:$padding-default;
+		padding-top:$padding-default;
+		padding-bottom:$padding-default;
+		min-height:80px;
+		
+		a{
+			text-decoration:none;
+		}
+		.fa{
+			background-color: rgba(0,0,0,0.20);
+			font-size:22px;
+			position:absolute;
+			left:$distance;
+			top:($distance - 2);
+			border:2px solid darken($white, 15%);
+			width:54px;
+			height:54px;
+			border-radius:200px;
+			line-height:46px;
+			text-align:center;
+			color:darken($white, 15%);
+			overflow:hidden;
+			
+			.image{
+				width:100%;
+			}
+		}
+		.side-user-panel-inner{
+			
+			h4{
+				font-family:$font-family-medium-roboto;
+				font-size:$font-size-xbase;
+				color:$white;
+				text-transform: capitalize;
+				margin-top:0;
+				margin-bottom:0;
+			}
+			p{
+				font-family:$font-family-regular-roboto;
+				font-size:$font-size-base;
+				color:darken($white, 15%);
+				line-height:$distance;
+				margin-bottom:0;
+				margin-top:($margin-default - 10);
+			}
+		}
+	}
+	.side-menu{
+		.list{
+			.item{
+				background-color:$white;
+				font-family:$font-family-regular-roboto;
+				color:$secondary-text-color;
+				font-size:$font-size-xbase;
+				margin:1px 0 0 0;
+				border-top-width: 0;
+				border-left-width: 0;
+				border-right-width: 0;
+				border-bottom-width: 0;
+
+				.icon{
+					font-size: 20px;
+					color:$secondary-text-color-dark;
+				}
+			}
+			.item.item-divide{
+				border-bottom-width: 1px;
+			}
+			.item.item-active, .item.activated{
+				background-color:$white;
+				border-bottom-color:$input-bg;
+			}
+			.item.active{
+				background-color:$white;
+				border-bottom-color:$input-bg;
+			}
+		}
+	}
+}
+.filter-side-panel{
+	.item.item-price-range{
+		.item{
+			overflow: visible;
+			border: none;
+			padding-left: 5px;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+	.item-buttons{
+		padding-top:15px;
+
+		.button{
+			margin-bottom: 10px;
+			margin-top: 0;
+		}
+	}
+	.item{
+		.filter-title{
+			font-size: 15px;
+			margin-bottom: 15px;
+			font-weight: bold;
+			text-transform: capitalize;
+		}
+		.item-checkbox{
+			border-width: 0;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 38px;
+			font-size: 14px;
+			text-transform: capitalize;
+
+			.checkbox{
+				padding-left: 0;
+				padding-bottom: 0;
+				left: 0;
+			}
+		}
+	}
+	
+}
+
+.list .item.item-accordion {
+	padding-top: 0;
+	padding-bottom: 0;
+	transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+	line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+	display: block !important;
+}

@@ -1,0 +1,65 @@
+/*!
+ *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+ 
+@import "fontawesome/variables";
+@import "fontawesome/mixins";
+@import "fontawesome/path";
+@import "fontawesome/core";
+@import "fontawesome/larger";
+@import "fontawesome/fixed-width";
+@import "fontawesome/list";
+@import "fontawesome/bordered-pulled";
+@import "fontawesome/animated";
+@import "fontawesome/rotated-flipped";
+@import "fontawesome/stacked";
+@import "fontawesome/icons";
+@import "fontawesome/screen-reader";
+
+
+
+//The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+@import "lib/ionic.varibles";
+@import "lib/ionic.mixins";
+
+@import "lib/ionic.base";
+@import "www/lib/ionic/scss/ionic";
+
+@import "lib/ionic.swiper.min";
+
+@import "lib/ionic.range.slider";
+@import "lib/ionic.range.slider.skinHTML5";
+
+
+@import "lib/ionic.bar";
+@import "lib/ionic.animation";
+@import "lib/ionic.popup";
+@import "lib/ionic.intro";
+@import "lib/ionic.slide.tabs";
+@import "lib/ionic.side.menu";
+@import "lib/ionic.login.page";
+@import "lib/ionic.myaccount.page";
+@import "lib/ionic.home.page";
+@import "lib/ionic.search.page";
+@import "lib/ionic.products";
+@import "lib/ionic.products.page";
+@import "lib/ionic.products.detail.page";
+@import "lib/ionic.category";
+@import "lib/ionic.cart.page";
+@import "lib/ionic.order.page";
+@import "lib/ionic.myorder.page";
+@import "lib/ionic.shipping.page";
+@import "lib/ionic.shipping.method";
+@import "lib/ionic.setting.page";
+@import "lib/ionic.thankyou.page";
+@import "lib/ionic.contact.page";
+@import "lib/ionic.about.page";
+@import "lib/ionic.news";
+@import "lib/ionic.footer";
+
+
+

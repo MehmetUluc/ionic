@@ -1,0 +1,32 @@
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+        </div>
+        <h1 class="title" translate>Customer Address</h1>
+        <div class="buttons">
+            <a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+    <ion-content class="shipping-panel content-panel has-header has-footer">
+
+        <div class="list list-inset">
+
+            <div ng-if="allShippingAddress.length==0" class="text-center" translate>Please add your new shipping address for the futher processing of the your order</div>
+            <div class="item item-icon-left item-icon-right" ng-repeat="address in allShippingAddress">
+
+                <div class="icon ion-edit" ng-click="updateAddress(address);"></div>
+
+                <h2>{{address.street+', '+ address.city+', '+address.state+' '+address.postcode+', '+address.country_name}}</h2>
+
+                <span class="icon ion-android-radio-button-off" ng-click="defaultAddress(address.address_id)" ng-if="address.default_address==null"></span>
+                <span class="icon ion-android-radio-button-on" ng-if="address.default_address!=null"></span>
+                <!--<a href="" class="fa fa-trash" ng-if="address.default_address==null" ng-click="deleteAddress(address.address_id)"></a>-->
+            </div>
+            <button class="button button-block button-royal" ng-click="showModal('updateShipping');showButton(0);" translate>Add New Address</button>
+        </div>
+    </ion-content>
+</ion-view>

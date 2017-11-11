@@ -1,0 +1,102 @@
+//============================================================================================
+//recent items remove effect
+.recent-swiper{
+	.ng-move,.ng-enter,.ng-leave {transition:all linear 0.5s;}
+	.ng-leave.ng-leave-active,.ng-move,.ng-enter {opacity:0;}
+	.ng-leave,.ng-move.ng-move-active,.ng-enter.ng-enter-active {opacity:1;}	
+}
+//============================================================================================
+// making any element shake
+@keyframes shake {
+  0% {transform: translateX(0);}
+  12.5% {transform: translateX(-6px) rotateY(-5deg)}
+  37.5% {transform: translateX(5px) rotateY(4deg)}
+  62.5% {transform: translateX(-3px) rotateY(-2deg)}
+  87.5% {transform: translateX(2px) rotateY(1deg)}
+  100% {transform: translateX(0)}
+}
+
+.shake { -webkit-animation: shake 400ms ease-in-out;  animation: shake 400ms ease-in-out;}
+//============================================================================================
+// animation cart icon effect
+.cart-animation{transform: scale(1.8);}
+
+.badge {  transition: all .5s ease-in-out;}
+//============================================================================================
+//cart items remove csss animations
+.list-cart.ng-enter,.list-cart.ng-leave{transition:all linear 0.3s;}
+.list-cart.ng-leave.ng-leave-active {transform: scale(0.4);}
+.list-cart.ng-enter{opacity:0;}
+.list-cart.ng-leave,.list-cart.ng-enter.ng-enter-active {opacity: 1;}	
+
+	// .ng-move,.ng-enter,.ng-leave {transition:all linear 0.5s;}
+	// .ng-leave.ng-leave-active,.ng-move,.ng-enter {opacity:0;}
+	// .ng-leave,.ng-move.ng-move-active,.ng-enter.ng-enter-active {opacity:1;}
+//============================================================================================
+// products effects 
+.product-panel.ng-enter,.product-panel.ng-leave{transition:all linear 0.5s;}
+.product-panel.ng-leave,.product-panel.ng-enter.ng-enter-active {  opacity: 1;}
+.product-panel.ng-enter,.product-panel.ng-leave.ng-leave-active{opacity:0;}
+
+.effect.ng-enter,.effect.ng-leave{transition:all linear 0.5s;}
+.effect.ng-leave,.effect.ng-enter.ng-enter-active {  opacity: 1;}
+.effect.ng-enter,.effect.ng-leave.ng-leave-active{opacity:0;}
+
+.product-swiper.ng-enter{transition:all linear 0.5s;opacity:0;}
+.product-swiper.ng-enter.ng-enter-active {opacity:1;}
+
+.item-single.ng-enter{transition:all linear 0.5s;opacity:0;}
+.item-single.ng-enter.ng-enter-active {opacity:1;}
+
+.products{
+	.ng-move,.ng-enter,.ng-leave {transition:all linear 0.5s;}
+	.ng-leave.ng-leave-active,.ng-move,.ng-enter {opacity:0;}
+	.ng-leave,.ng-move.ng-move-active,.ng-enter.ng-enter-active {opacity:1;}
+}
+
+//============================================================================================
+// empty page show div effect
+.empty-content.ng-enter{transition:all linear 1.5s;opacity:0;}
+.empty-content.ng-enter.ng-enter-active {opacity:1;}	
+
+// .hide-effect{transition:all linear 0.5s}
+// .hide-effect.ng-hide-add{opacity: 0;}
+// .hide-effect.ng-hide-remove{opacity: 1;}
+
+// /* when hiding the thing */
+// .ng-hide{ 
+//   -webkit-animation:0.5s lightSpeedOut ease; 
+//   animation:0.5s lightSpeedOut ease; 
+// }
+// .hide-effect{
+// transition:all linear 1.5s;
+// }
+// .ng-hide-remove{
+// 	opacity:1;
+// }
+
+// /* light speed out */
+// @-webkit-keyframes lightSpeedOut {
+//   0% {
+//     opacity: 1;
+//   }
+
+//   100% {
+//     -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+//     transform: translate3d(100%, 0, 0) skewX(30deg);
+//     opacity: 0;
+//   }
+// }
+
+// @keyframes lightSpeedOut {
+//   0% {
+//     opacity: 1;
+//   }
+
+//   100% {
+//     -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+//     -ms-transform: translate3d(100%, 0, 0) skewX(30deg);
+//     transform: translate3d(100%, 0, 0) skewX(30deg);
+//     opacity: 0;
+//   }
+// }

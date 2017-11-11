@@ -1,0 +1,76 @@
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear ion-android-arrow-back" ng-click="goBack()"></a>
+        </div>
+        <h1 class="title" translate>Search</h1>
+        <div class="buttons">
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+
+    <ion-content class="search-panel content-panel has-header" lazy-scroll on-scroll="onScroll()" delegate-handle="search">
+        <div class="list list-inset list-form">
+            <form class="form" ng-submit="getSearchData(searchValue)">
+                <label class="item-input" style="margin-bottom: 0;">
+                    <i class="fa fa-search placeholder-icon"></i>
+                    <input type="search" placeholder="{{'Enter keyword'|translate}}" ng-model="searchValue"  ng-change="onChangeKeyword(searchValue)" required>
+                </label>
+            </form>
+        </div>
+        <div ng-if="searchResult.length!=0">
+            <h3 ng-if="searchResult.mainCategories.length!=0" translate>Main Categories </h3>
+            <p ng-repeat="search in searchResult.mainCategories" ng-click="getSubCategories(search.name,search.id)">
+                <span> {{searchedWord+" in "}} </span> {{search.name}}
+            </p>
+            <h3 ng-if="searchResult.subCategories.length!=0" translate>Sub Categories</h3>
+            <p ng-repeat="search in searchResult.subCategories" ng-click="getSubProducts(search.name,search.id)">
+                <span> {{searchedWord+" in "}} </span> {{search.name}}
+            </p>
+            <div class="products products-panel">
+                <div class="list">
+                    <div class="item-single item-thumbnail-left col" ng-repeat="product in searchResult.products track by $index">
+                        <img image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}" ng-click="showProductDetail(product)">
+
+                        <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+                        <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+
+                        <h6 class="item-title">{{product.products_name}}</h6>
+
+                        <div class="row item-price-row">
+                            <div class="col col-75 text-left item-price">
+                                <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                                <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                                <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                            </div>
+                            <div class="col col-25 text-right item-like">
+                                <a class="fa fa-heart-o" ng-if="product.isLiked=='0'" ng-click="likeProduct('like',product)"></a>
+                                <a class="fa fa-heart" ng-click="likeProduct('dislike',product)" ng-if="product.isLiked=='1'"></a>
+                            </div>
+                        </div>
+
+                        <button class="button button-royal" ng-click="addToCart(product);" ng-if="settings.cartButton==true && product.products_quantity!=0"
+                            translate>ADD TO CART</button>
+                        <button class="button button-assertive" ng-if="product.products_quantity==0" translate>OUT OF STOCK</button>
+                        <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                            <span class="fa fa-check"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="list list-cat-result" ng-if="searchResult.length==0">
+            <div class="item item-icon-left item-icon-right" ng-repeat="types in categories" ng-click="getProducts(types.name,types.id)"
+                ng-if="types.parent_id!=0">
+                <div class="icon"><img class="image" image-lazy-src="{{mainUrl+types.icon}}"></div>
+                <p class="text-left">{{types.name}}</p>
+                <div class="icon">
+                    <span class="ion-ios-arrow-forward"></span>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

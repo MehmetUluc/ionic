@@ -1,0 +1,12 @@
+<ion-modal-view view-title="Privacy Policy">
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+           <a class="button button-clear ion-android-arrow-back" ng-click="hideModal('privacyPolicy')"></a>
+        </div>
+        <h1 class="title" style="width: 60%;margin: auto;" translate>Privacy Policy</h1>
+    </div>
+    <ion-content class="padding has-header">
+        <div ng-bind-html="privacyPolicy"></div>
+
+    </ion-content>
+</ion-modal-view>

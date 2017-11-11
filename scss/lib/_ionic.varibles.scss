@@ -1,0 +1,202 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #3b5998 !default;
+$assertive:                       #ef473a !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default; 
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src:url('../fonts/Roboto-Regular/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+	  url('../fonts/Roboto-Regular/Roboto-Regular.woff') format('woff'),
+	  url('../fonts/Roboto-Regular/Roboto-Regular.ttf')  format('truetype'),
+	  url('../fonts/Roboto-Regular/Roboto-Regular.svg#Roboto-Regular') format('svg');
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src:url('../fonts/Roboto-Light/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+	  url('../fonts/Roboto-Light/Roboto-Light.woff') format('woff'),
+	  url('../fonts/Roboto-Light/Roboto-Light.ttf')  format('truetype'),
+	  url('../fonts/Roboto-Light/Roboto-Light.svg#Roboto-Light') format('svg');
+}
+@font-face {
+  font-family: 'Roboto-Medium';
+  src:url('../fonts/Roboto-Medium/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+	  url('../fonts/Roboto-Medium/Roboto-Medium.woff') format('woff'),
+	  url('../fonts/Roboto-Medium/Roboto-Medium.ttf')  format('truetype'),
+	  url('../fonts/Roboto-Medium/Roboto-Medium.svg#Roboto-Medium') format('svg');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src:url('../fonts/Roboto-Bold/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+	  url('../fonts/Roboto-Bold/Roboto-Bold.woff') format('woff'),
+	  url('../fonts/Roboto-Bold/Roboto-Bold.ttf')  format('truetype'),
+	  url('../fonts/Roboto-Bold/Roboto-Bold.svg#Roboto-Bold') format('svg');
+}
+
+@font-face {
+  font-family: 'RobotoSlab-Regular';
+  src:url('../fonts/RobotoSlab-Regular/RobotoSlab-Regular.eot?#iefix') format('embedded-opentype'),
+	  url('../fonts/RobotoSlab-Regular/RobotoSlab-Regular.woff') format('woff'),
+	  url('../fonts/RobotoSlab-Regular/RobotoSlab-Regular.ttf')  format('truetype'),
+	  url('../fonts/RobotoSlab-Regular/RobotoSlab-Regular.svg#RobotoSlab-Regular') format('svg');
+}
+
+@font-face {
+  font-family: 'fontawesome-webfont';
+  src:url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+	  url('../fonts/fontawesome-webfont.woff') format('woff'),
+	  url('../fonts/fontawesome-webfont.ttf')  format('truetype'),
+	  url('../fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
+}
+@font-face {
+  font-family: 'Pasajero';
+  src:url('../fonts/Pasajero/Pasajero.eot?#iefix') format('embedded-opentype'),
+	  url('../fonts/Pasajero/Pasajero.woff') format('woff'),
+	  url('../fonts/Pasajero/Pasajero.ttf')  format('truetype'),
+	  url('../fonts/Pasajero/Pasajero.svg#Pasajero') format('svg');
+}
+
+// fonts
+// -------------------------------
+
+$font-family-regular-roboto:		'Roboto-Regular' !default;
+$font-family-medium-roboto:			'Roboto-Medium' !default;
+$font-family-light-roboto:			'Roboto-Light' !default;
+$font-family-bold-roboto:			'Roboto-Bold' !default;
+$font-family-robotoslab:			'RobotoSlab-Regular' !default;
+
+$font-family-awsome:				'fontawesome-webfont' !default;
+$font-family-base:					$font-family-regular-roboto !default;
+
+
+$font-size-small:                 11px !default;
+$font-size-xsmall:                12px !default;
+$font-size-base:                  13px !default;
+$font-size-xbase:                 14px !default;
+$font-size-large:                 16px !default;
+$font-size-xlarge:                18px !default;
+$font-size-xxlarge:               20px !default;
+$font-size-xxxlarge:              24px !default;
+
+
+// main colors
+// -------------------------------------------------
+
+$black:							#000000 !default; // General Colors
+$white:							#ffffff !default; // General Colors
+
+$bg-color:						#eeeeee !default; // background color of application
+$input-bg:						#dddddd !default; // background color of input fields       
+
+
+// Social buttons colors like facebook, google etc...
+// -------------------------------------------------
+
+$facebook:                        	#3b5998 !default;
+$google:                       		#dd4b39 !default;
+
+$button-facebook-bg:                $facebook !default;
+$button-facebook-text:              $white !default;
+$button-facebook-border:            $facebook !default;
+$button-facebook-active-bg:         darken($facebook, 10%)!default;
+$button-facebook-active-border:     darken($facebook, 10%)!default;
+
+$button-google-bg:                	$google !default;
+$button-google-text:              	$white !default;
+$button-google-border:            	$google !default;
+$button-google-active-bg:         	darken($google, 10%)!default;
+$button-google-active-border:     	darken($google, 10%)!default;
+
+
+// buttons colors
+// -------------------------------------------------
+
+$royal:							#557F5F !default; // *secondary-color // buttons-royal
+$stable:                        #f8f8f8 !default; // background color of footer
+
+
+// Primary-color-light
+$primary-color-light:			#8096bf !default; // optional color
+// Primary-color-default
+$positive:						#51688F !default; // background color of page header
+// Primary-color-dark
+$primary-color-dark:			#233e61 !default; // background color of intro Screen
+
+// secondary-color-light
+$secondary-color-light:			#83af8c !default; // background color of badge icon, heart icon, edit icon, check icon, quantity icons and calender icon.
+// secondary-color-default
+$secondary-color:				#557f5f !default; // *(color use for button-royal background)
+// secondary-color-dark
+$secondary-color-dark:			#2a5235 !default; // color of currency text
+
+
+// Accent-colors
+$accent-color-a:				#ff0000 !default; // color of input error state and stock text
+$accent-color-b:				#03a9f4 !default; // color of input success state, signup anchor text
+
+$accent-color-c:				#da0000 !default; // background color of product new tag
+$accent-color-d:				#03a9f4 !default; // background color of discount price tag.
+
+
+$secondary-text-color:			#757575; // text detail color or sub text color
+$secondary-text-color-light:	#bdbdbd; // divider color or icon color 
+$secondary-text-color-dark:		#212121; // main heading color
+
+
+$icon-color-light:              $secondary-text-color-light;
+
+
+// Buttons
+// -------------------------------
+
+
+$margin-default:                   15px !default;
+$padding-default:                  15px !default;
+$distance: 						   15px !default;	
+
+$button-font-size:                	$font-size-xbase !default;
+$button-border-radius:				2px !default;
+$button-border-width:				1px !default;
+$button-block-margin:				15px !default;
+$button-height:						35px !default;
+
+
+$button-stable-bg:                $stable !default;
+
+// Bars
+// -------------------------------
+
+//$bar-title-font-size:             $font-size-xbase !default;
+//$bar-padding-portrait:            10px !default;
+//$bar-padding-landscape:           10px !default;
+
+
+// Forms
+// -------------------------------
+
+
+$input-color:                     $secondary-text-color-dark !default;
+$input-label-color:               $secondary-text-color-light !default;
+$input-color-placeholder:         $secondary-text-color-light !default;
+
+
+// Tabs
+// -------------------------------
+
+$tabs-height:                     50px !default;
+$tabs-striped-border-width:       2px !default;
+
+$tabs-stable-bg:                  $button-stable-bg !default;
+

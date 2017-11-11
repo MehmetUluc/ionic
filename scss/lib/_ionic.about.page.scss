@@ -1,0 +1,45 @@
+.about-panel{
+	@extend.content-panel;
+	padding-bottom: 45px;
+
+	.list{
+		padding-top: $padding-default;
+		padding-left: $padding-default;
+		padding-right: $padding-default;
+
+		.button{
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+	.list-about{
+		margin-bottom: 0;
+		text-align: center;
+	}
+	.list-desc{
+		margin-bottom: 0;
+		.row{
+			.col{
+				padding: 0;
+				h5{
+					margin-top: 0;
+				}
+			}
+		}
+		
+	}
+	.list-links{
+		padding-bottom: 64px;
+		margin-bottom: 0;
+
+		.item{
+			color: $secondary-text-color-dark;
+			font-size: $font-size-xbase;
+			.icon{
+				font-size:$font-size-xxlarge;
+				color: $secondary-text-color;
+			}
+		}
+	}
+
+}

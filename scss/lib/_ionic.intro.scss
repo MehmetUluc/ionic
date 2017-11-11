@@ -1,0 +1,59 @@
+.intro-page .scroll{
+    height: 100%;
+}
+.intro-page{
+    background-image: url('../img/intro_top_bg.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size:auto 55%;
+    background-color: $white;
+
+    .swiper-container{
+        .swiper-wrapper{
+            .swiper-slide{
+                padding-top: 10%;
+                padding-left: $padding-default;
+                padding-right: $padding-default;
+                .image{
+                    width: 60%;
+                    //margin-bottom: $margin-default;
+                }
+
+                .icon{
+                    display: block;
+                    font-size:($font-size-xlarge + 18);
+                    color: $positive;
+                }
+                .title{
+                    margin-top: 0;
+                    font-family: $font-family-medium-roboto;
+                    font-size:$font-size-large;
+                    color: $secondary-text-color-dark;
+                }
+                .slide-text{
+                    color: $secondary-text-color;
+                    font-size:$font-size-base;
+                }
+
+                .button{
+                    min-height: 28px;
+                    line-height: 30px;
+                    position: absolute;
+                    bottom: 35px;
+                    left: 50%;
+                    margin-left: -80px;
+                    width: 160px;
+                }
+            }
+            .intro-slide{
+                
+            }
+        }
+        .swiper-pagination{
+            .swiper-pagination-bullet-active{
+                background:$secondary-color;
+                opacity: 1.00;
+            }
+        }
+    }
+}

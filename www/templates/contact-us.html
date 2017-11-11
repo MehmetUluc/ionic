@@ -1,0 +1,66 @@
+<ion-view view-title="Contact us">
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+           <a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+        </div>
+        <h1 class="title">
+            Contact us
+        </h1>
+    </div>
+    <ion-content class="contact-panel has-header">
+        <div class="list list-contact-upper">
+            <div class="map" id="map" style="height:350px;"></div>
+        </div>
+        
+        <div class="list list-contact-bottom">
+            <div class="list-contact-inner">
+                <div class="row">
+                    <div class="col col-90">
+                        <h5>
+                            <span class="icon ion-android-pin"></span>
+                            {{address}}
+                        </h5>
+                        
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col col-50">
+                        <h5>
+                            <span class="icon ion-android-mail"></span>
+                            {{email}}
+                        </h5>
+                    </div>
+                    <div class="col col-50">
+                        <h5>
+                            <span class="icon ion-android-call"></span>
+                            {{phone}}
+                        </h5>
+                    </div>
+                 </div>
+
+                <form ng-submit="submit(contactForm)" class="form" name="contactForm">
+                    <label class="item-input">
+                        <span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+                        <input type="text" placeholder="Name" ng-model="contact.name" required>
+                    </label>
+                    <label class="item-input">
+                        <span class="fa fa-envelope-o placeholder-icon" aria-hidden="true"></span>
+                        <input type="email" placeholder="{{'Email'|translate}}" ng-model="contact.email" required>
+                    </label>
+                    <label class="item-input">
+                        <span class="fa fa-comment placeholder-icon" aria-hidden="true"></span>
+                        <textarea type="text" placeholder=" {{'Your Messsage'|translate}}" ng-model="contact.message" required></textarea>
+                    </label>
+                    <button class="button button-block button-royal" type="submit" translate>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="list list-map">
+            
+        </div>
+    </ion-content>
+</ion-view>

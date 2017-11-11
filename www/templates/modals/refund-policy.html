@@ -1,0 +1,11 @@
+<ion-modal-view view-title="Refund Policy">
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+           <a class="button button-clear ion-android-arrow-back" ng-click="hideModal('refundPolicy')"></a>
+        </div>
+        <h1 class="title" style="width: 60%;margin: auto;" translate>Refund Policy</h1>
+    </div>
+    <ion-content class="padding has-header">
+        <div ng-bind-html="refundPolicy"></div>
+    </ion-content>
+</ion-modal-view>

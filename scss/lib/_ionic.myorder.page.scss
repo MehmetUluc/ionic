@@ -1,0 +1,47 @@
+.myorder-panel{
+	padding-top: ($padding-default - 5);
+	padding-left: ($padding-default - 5);
+	padding-right: ($padding-default - 5);
+	
+	.list{
+		padding-bottom: 50px;
+
+		.item{
+			background-color: $white;
+			margin-bottom: 10px;
+			padding-left: 0;
+			padding-right: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+
+			.row:last-child{
+				.col{
+					border-bottom: none;
+				}
+			}
+			.row{
+				.col{
+					border-bottom: 1px solid #f5f5f5;
+					h3{
+						color: $secondary-text-color;
+						line-height: 20px;
+					}
+					span{
+						font-size:$font-size-xbase;
+						color: $secondary-text-color-dark;
+					}
+
+					.label-pending{
+						color: $royal;
+					}
+					.label-cancel{
+						color: $accent-color-a;
+					}
+					.label-complete{
+						color: $accent-color-b;
+					}
+				}
+			}
+		}
+	}
+}

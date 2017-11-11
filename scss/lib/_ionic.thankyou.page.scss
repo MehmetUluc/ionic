@@ -1,0 +1,29 @@
+.thankyou-panel{
+	
+	.card{
+		margin-top:($margin-default - 5);
+		margin-bottom:($margin-default - 5);
+		box-shadow: none;
+		.item{
+			border-bottom-width:0;
+			@include border-radius(2px);
+			padding-bottom: 1px;
+			text-align: center;
+			
+			.fa{
+				font-size:70px;
+				color:$secondary-color-light;
+				margin-top:$margin-default;
+				margin-bottom: $margin-default;
+			}
+			.item-title{
+				color:$secondary-text-color-dark;
+				font-size: 25px;
+			}
+			.item-detail{
+				color:$secondary-text-color;
+				font-size: $font-size-base;
+			}
+		}
+	}
+}

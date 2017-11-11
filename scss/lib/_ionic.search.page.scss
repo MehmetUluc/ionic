@@ -1,0 +1,19 @@
+.search-panel{
+	.list-form{
+		background-color: transparent;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		.form{
+			text-align:center;
+		}
+	}
+	.list-cat-result{
+		.icon{
+			color: $icon-color-light;
+			font-size:$font-size-xxlarge;
+			.image{
+				width: 22px;
+			}
+		}
+	}
+}

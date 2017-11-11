@@ -1,0 +1,16 @@
+<ion-modal-view>
+    <div class="bar bar-positive bar-header">
+         <div class="buttons">
+        <a class="button button-clear ion-android-arrow-back" ng-click="hideModal('selectLanguage')"></a>
+         </div>
+        <h1 class="title" translate>Select Language</h1>
+    </div>
+    <ion-content class="setting-panel content-panel has-header" ng-controller="selectLanguageController">
+         <ion-list class="language-list">
+            <ion-radio ng-repeat="l in languages" ng-model="lang" ng-value="l" ng-change="changeLanguage(l)">
+                <div class="icon"><img src="{{mainUrl+l.image}}"></div>
+                <h2>{{l.name}}</h2>
+            </ion-radio>
+        </ion-list> 
+    </ion-content>
+</ion-modal-view>

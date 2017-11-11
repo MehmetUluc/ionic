@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Ecommerce - An mobile app</title>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!--<link href="css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="css/ion.rangeSlider.skinHTML5.css" rel="stylesheet">-->
+
+    <!-- ionic/angularjs js -->
+    <script src="config.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/others/jquery.js"></script>
+    <script src="js/others/ngStorage.js"></script>
+    <script src="js/others/swiper.min.js"></script>
+    <script src="js/others/ion.rangeSlider.js"></script>
+    <script src="js/others/angular-payments.js"></script>
+    <script src="js/others/braintree.min.js"></script>
+    <script src="js/others/braintreeClient.js"></script>
+    <script src="js/others/braintreeHostedFields.js"></script>
+    <!-- Load the PayPal component. -->
+    <script src="js/others/braintreePaypal.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/others/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+    <!-- your app's js-->
+    <script src="js/openfb.js"></script>
+    <script src="js/ngopenfb.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/menuController.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/coupon.js"></script>
+    <script src="js/others/angular-translate.min.js"></script>
+    <!-- <script src="js/others/angular-translate-handler-log.js"></script>
+    <script src="js/others/angular-translate-loader-static-files.js"></script> -->
+    <!-- <script src="js/others/angular-cookies.js"></script>
+    <script src="js/others/angular-translate-storage-cookie.js"></script>
+    <script src="js/others/angular-translate-storage-local.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCMLN-ZbmFDw7Rf_OLsCDrYzI4n-jcaX0"></script>
+
+
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/cartController.js"></script>
+    <script src="js/controllers/modals/loginController.js"></script>
+    <script src="js/controllers/modals/selectLanguageController.js"></script>
+    <script src="js/controllers/myOrdersController.js"></script>
+    <script src="js/controllers/shippingAddressController.js"></script>
+    <script src="js/controllers/billingAddressController.js"></script>
+    <script src="js/controllers/shippingMethodController.js"></script>
+    <script src="js/controllers/productDetailController.js"></script>
+    <script src="js/controllers/modals/createNewAccountController.js"></script>
+    <script src="js/controllers/myAccountController.js"></script>
+    <script src="js/controllers/allShippingAddressController.js"></script>
+    <script src="js/controllers/orderController.js"></script>
+    <!--<script src="js/controllers/paymentController.js"></script>-->
+    <script src="js/controllers/modals/forgetPasswardController.js"></script>
+    <script src="js/controllers/modals/updateShippingAddressController.js"></script>
+    <script src="js/controllers/searchController.js"></script>
+    <script src="js/controllers/settingsController.js"></script>
+    <script src="js/controllers/productsController.js"></script>
+    <script src="js/controllers/categoriesController.js"></script>
+    <script src="js/controllers/orderDetailController.js"></script>
+    <script src="js/controllers/subCategoriesController.js"></script>
+    <script src="js/controllers/wishListController.js"></script>
+    <script src="js/controllers/filterController.js"></script>
+    <script src="js/controllers/thankYouController.js"></script>
+    <script src="js/controllers/contactUsController.js"></script>
+    <script src="js/controllers/introController.js"></script>
+    <script src="js/controllers/laravelCategoriesController.js"></script>
+    <script src="js/controllers/laravelPostsController.js"></script>
+    <script src="js/controllers/laravelPostDetailController.js"></script>
+
+</head>
+
+<body ng-app="starter" ng-controller="mainController">
+    <link ng-if="appDirection=='rtl'" href="css/ionic.rtl.css" rel="stylesheet">
+    <ion-nav-view></ion-nav-view>
+</body>
+
+</html>

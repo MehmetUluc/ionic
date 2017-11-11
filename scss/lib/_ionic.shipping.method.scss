@@ -1,0 +1,28 @@
+.shipping-method{
+	padding-top: 10px;
+	.list{
+		padding-left: ($padding-default - 5);
+		padding-right: ($padding-default - 5);
+		margin-bottom: ($margin-default - 5);
+
+		.item-divider{
+			h2{
+				font-size:$font-size-xbase;
+				color:$secondary-text-color-dark;
+			}
+			
+		}
+		.item-radio{
+			.item-content{
+				h2{
+					font-size:$font-size-base;
+					color:$secondary-text-color;
+				}
+			}
+			
+			.icon{
+				font-size:$font-size-large;
+			}
+		}
+	}
+}

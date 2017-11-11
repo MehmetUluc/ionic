@@ -1,0 +1,61 @@
+.contact-panel{
+	@extend.content-panel;
+
+	.list{
+
+		text-align: center;
+
+		.image{
+			width: 180px;
+			margin-top: 5%;
+			margin-bottom: 5%;
+		}
+		
+	}
+	.list-contact-upper{
+
+	}
+	.list-contact-bottom{
+
+		margin-left: $margin-default;
+		margin-right: $margin-default;
+		margin-bottom: 65px;
+		.list-contact-inner{
+			background-color: $white;
+			margin-top: -80px;
+			padding-left:  $padding-default;
+			padding-right:  $padding-default;
+			padding-top:  $padding-default;
+			padding-bottom:  $padding-default;
+
+			.row{
+
+				margin-bottom: 15px;
+				text-align: left;
+				padding: 0;
+				.col{
+					padding: 0;
+					
+					h5{
+						color:$secondary-text-color-dark;
+						margin-top: 0;
+						margin-bottom:5px;
+						padding-left: 20px;
+						position: relative;
+						.icon{
+							font-size: $font-size-large;
+							color: $positive;
+							position: absolute;
+							left: 0;
+							top: -1px;
+							
+						}
+					}
+				}
+			}
+			.button{
+				margin-bottom: 0;
+			}
+		}
+	}
+}

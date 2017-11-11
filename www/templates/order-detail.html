@@ -1,0 +1,126 @@
+<ion-view>
+	<div class="bar bar-positive bar-header">
+		<div class="buttons">
+			<a class="button button-clear ion-android-arrow-back" ng-click="goBack()"></a>
+		</div>
+		<h1 class="title" translate>Order {{'#'+order.orders_id}}</h1>
+		<div class="buttons">
+			<!--<a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>-->
+			<a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+		</div>
+	</div>
+	<ion-content class="order-panel content-panel has-header has-footer">
+		<div class="list">
+			<div class="item item-divider">
+				<h2 translate>Shipping Address</h2>
+			</div>
+			<div class="item item-body">
+				{{order.delivery_street_address+', '+order.delivery_city+', '+order.delivery_state+' '+order.delivery_postcode+', '+order.delivery_country}}
+			</div>
+		</div>
+
+		<div class="list">
+			<div class="item item-divider">
+				<h2 translate>Billing Address</h2>
+			</div>
+			<div class="item item-body">
+				{{order.billing_street_address+', '+order.billing_city+', '+order.billing_state+' '+order.billing_postcode+', '+order.billing_country}}
+			</div>
+		</div>
+
+		<div class="list list-product">
+			<div class="item item-divider">
+				<h2 translate>Shipping Method</h2>
+			</div>
+			<div class="item item-body">
+				<div class="item-sub item-last">{{order.shipping_method}}</div>
+			</div>
+		</div>
+
+
+		<div class="list list-product">
+			<div class="item item-divider">
+				<h2 translate>Products</h2>
+			</div>
+
+			<div ng-repeat="product in order.data" ng-click="getSingleProductDetail(product.products_id)">
+				<div class="item item-title">
+					<h2>
+						{{product.products_name}}<br>
+						<small>{{product.categories_name}}</small>
+					</h2>
+				</div>
+				<div class="item item-thumbnail-left">
+					<div class="item-image">
+						<img class="image" src="{{mainUrl+product.image}}" alt="image">
+					</div>
+					<p class="item-sub">{{'Price'|translate}}&nbsp;&nbsp;:&nbsp;<span class="pull-right">{{product.products_price| currency}}</span></p>
+					<p class="item-sub" ng-repeat="att in product.attributes">{{att.products_options_values+'&nbsp;'+att.products_options}}&nbsp;:<span class="pull-right">{{att.price_prefix +'&nbsp;'+ att.options_values_price+'&nbsp;'+currencySymbol}}</span></p>
+					<p class="item-sub">{{'Quantity'|translate}}&nbsp;:&nbsp;
+						<span class="pull-right">
+							<label>{{product.products_quantity}}</label>
+						</span>
+					</p>
+					<p class="item-sub item-price">{{'Total'|translate}}&nbsp;:&nbsp;<span class="pull-right">{{product.final_price| currency}}</span></p>
+				</div>
+				<!-- <div class="item item-attribute" ng-if="product.attributes.length!=0">
+					<ul class="item-attr">
+						<li ng-repeat="att in product.attributes">{{att.products_options}}&nbsp;:&nbsp;
+						{{att.products_options_values + ' ' + att.price_prefix + att.options_values_price+currencySymbol}}
+					   </li>
+					</ul>
+				</div> -->
+			</div>
+		</div>
+
+		<div class="list list-product">
+			<div class="item item-divider">
+				<h2 translate>Price Detail</h2>
+			</div>
+			<div class="item item-body">
+				<div class="item-sub">{{'Sub Total'|translate}}<span class="pull-right">{{order.order_price-order.shipping_cost.toFixed(2) | currency }}</span></div>
+				<div class="item-sub">{{'Shipping'|translate}}<span class="pull-right">{{order.shipping_cost | currency }}</span></div>
+				<div class="item-sub item-price">{{'Total'|translate}}<span class="pull-right">{{order.order_price | currency}}</span></div>
+			</div>
+			
+		</div>
+
+		<div class="list list-product" ng-if="order.coupons.length!=0">
+			<div class="item item-divider">
+				<h2 translate>Coupons Applied</h2>
+			</div>
+			<div class="item item-body" style="padding-bottom:0;">
+				<div class="item-sub"><strong>{{'Coupon Code'|translate}}</strong><span class="pull-right"><strong>{{'Coupon Price'|translate}}</strong></span></div>
+				<div class="item-sub" ng-repeat="c in order.coupons">{{c.code}}<span class="pull-right">{{c.amount|currency}}</span></div>
+			</div>
+		</div>
+
+		<div class="list" ng-if="order.customer_comments!=null">
+			<div class="item item-divider">
+				<h2 translate>Order Notes</h2>
+			</div>
+			<div class="item item-body">
+				{{order.customer_comments}}
+			</div>
+		</div>
+
+		<div class="list" ng-if="order.admin_comments!=''">
+				<div class="item item-divider">
+					<h2 translate>Admin Notes</h2>
+				</div>
+				<div class="item item-body">
+					{{order.admin_comments}}
+				</div>
+			</div>
+
+		<div class="list list-product">
+			<div class="item item-divider">
+				<h2 translate>Payment Method</h2>
+			</div>
+			<div class="item item-body">
+				<div class="item-sub item-last">{{order.payment_method}}</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>

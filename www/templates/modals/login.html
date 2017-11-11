@@ -1,0 +1,56 @@
+<ion-modal-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear ion-android-arrow-back" ng-click="hideModal('login')"></a>
+        </div>
+        <h1 class="title" translate>Login</h1>
+    </div>
+    <ion-content class="login-panel has-header" ng-controller="loginController">
+
+        <div class="list list-logo">
+            <img class="image" src="{{logo}}" alt="logo">
+        </div>
+
+        <div class="list list-inset">
+            <div class="item-social-button">
+                <div class="row">
+                    <div class="col col-50">
+                        <button class="button button-block button-facebook" ng-click="facebookLogin()">{{ 'Login with' | translate }}&nbsp;<span class="fa fa-facebook" aria-hidden="true"></span></button>
+                    </div>
+                    <div class="col col-50">
+                        <button class="button button-block button-google" ng-click="googleLogin()">{{ 'Login with' | translate }}&nbsp;<span class="fa fa-google-plus" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+                <p class="divide-hline"><strong translate>or</strong></p>
+            </div>
+            <form ng-submit="doLogin(loginForm)" class="form" name="loginForm">
+                <label class="error-code" ng-if="errorMessage!=''">
+                    <span class="icon ion-android-warning"></span>{{errorMessage}}
+                </label>
+                <label class="item-input">
+                    <span class="fa fa-envelope-o placeholder-icon" aria-hidden="true"></span>
+                    <input type="email"  placeholder="{{ 'Email' | translate }}" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="loginData.customers_email_address" name="customers_email_address" required>
+                    
+                    <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+                    <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+                </label>
+                <label class="item-input">
+                    <span class="fa fa-lock placeholder-icon" aria-hidden="true"></span>
+                    <input type="password" placeholder="{{ 'Password' | translate }}" name="customers_password" ng-model="loginData.customers_password" required> 
+                    
+                    <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+                    <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+                </label>
+                <button class="button button-block button-royal" type="submit" translate>Login</button>
+                
+            </form>
+
+
+        </div>
+        <div class="list list-login-bottom">
+            <a href="" class="login-bottom-text" ng-click="showModal('forget')" translate>I've forgotten my password?</a>
+            <a class="login-bottom-button" ng-click="showModal('createNewAccount')" translate>Register</a>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

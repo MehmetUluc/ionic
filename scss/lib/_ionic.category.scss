@@ -1,0 +1,135 @@
+.category-panel.category-panel-v4{
+	padding-left: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 0;
+	.col-category-panel.col-category-panel-v3{
+		margin-bottom:0;
+		border-width:0;
+		border-bottom-width: 1px;
+		margin-left:0;
+		height: 190px;
+	}
+	.col-category-panel.col-category-panel-v3:last-child{
+		border-bottom-width:0;
+	}
+}
+.category-panel.category-panel-v2{
+	padding-top:0;
+	padding-left: 0;
+	padding-right: 0;
+
+	h2{
+		font-size:($font-size-xbase + 1);
+		color: $secondary-text-color-dark;
+	}
+	p{
+		font-size: $font-size-base;
+		color: $secondary-text-color;
+	}
+}
+
+.category-panel{
+	display: inline-block;
+	padding-top: $padding-default;
+	padding-left: ($padding-default - 4);
+	padding-right:($padding-default - 5);
+	
+	.product-view-title{
+		margin-top:($margin-default - 5);
+		margin-bottom:($margin-default - 5);
+		font-size:$font-size-large;
+		color:$secondary-text-color-dark;
+	}
+
+	
+	.col-category-panel{
+		background-color: transparent;
+		position: relative;
+		display: table;
+    	float: left;
+		background-size: cover;
+		height: 160px;
+		margin-bottom: 0px;
+		text-align: center;
+		border-color: $bg-color;
+		border-style: solid;
+		padding: $padding-default;
+		margin-left: 0.25px;
+		margin-right: 0.25px;
+		border-top-width: 1px;
+
+		.image-overlay{
+			background-color: rgba(0,0,0,0.60);
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+		}
+		.category-title{
+			position: relative;
+			z-index: 10;
+			display: table-cell;
+			vertical-align: middle;
+
+			h4{
+				font-size:($font-size-xbase + 1);
+				margin-top: 5px;
+				margin-bottom:5px;
+				color: $white;
+			}
+			p{
+				font-size: $font-size-base;
+				color: $white;
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	.col-category-panel.col-category-panel-v2{
+		background-color: $white;
+	
+		.category-title{
+			.thumb{
+				width: 35px;
+				height: 35px;
+				display: inline-block;
+				margin-left: auto;
+				margin-right: auto;
+				
+				.icon{
+					height: 100%;
+				}
+			}
+			h4{
+				color: $secondary-text-color-dark;
+			}
+			p{
+				color: $secondary-text-color;
+			}
+		}
+		
+	}
+
+	.list-category{
+		.item{
+			.icon{
+				left: 15px;
+				img{
+					width: 20px;
+				}
+			}
+			.thumb{
+				position: absolute;
+				right: 15px;
+				top: 12px;
+
+				.image{
+					height: 45px;
+				}
+			}
+		}
+	}
+}

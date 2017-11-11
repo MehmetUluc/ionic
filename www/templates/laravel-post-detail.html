@@ -1,0 +1,28 @@
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear button-light ion-android-arrow-back" ng-click="goBack()"></a>
+        </div>
+        <h1 class="title" style="width: 60%;margin: auto;">{{post.news_name}}</h1>
+        <div class="buttons">
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+    <ion-content class="wordpress-content wordpress-content-detail content-panel has-header" lazy-scroll on-scroll="onScroll()"
+        delegate-handle="postDetail">
+        <div class="list">
+            <div class="item item-thumb">
+                <div class="thumb">
+                    <img class="image" src="{{mainUrl+post.news_image}}" alt="Image" />
+                </div>
+            </div>
+            <div class="item">
+                <h2>{{post.news_name}}</h2>
+                <span class="icon ion-android-calendar"><span>{{post.news_date_added | limitTo: 10}}</span></span>
+            </div>
+            <div class="item">
+                <div class="post-description" ng-bind-html="post.news_description"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

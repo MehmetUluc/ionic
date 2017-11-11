@@ -1,0 +1,49 @@
+.bar{
+	.button.button-clear{
+		font-size:$font-size-xxlarge;
+		padding-left:($padding-default - 5);
+		padding-right:($padding-default - 5);
+		color:$white;
+
+		.icon{
+			width: 20px;
+    		padding-top: 10px;
+		}
+	}
+	.title{
+		font-size: $font-size-large !important;
+	}
+	
+	.title-menu-logo{
+		@extend.title;
+		font-family: 'Pasajero';
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		padding-top: 4px;
+		.image{
+			width:25px;
+			margin-right: 2px;
+			margin-top:-3px;
+		}
+	}
+	.title-page-logo{
+		@extend.title-menu-logo;
+		justify-content: center;
+	}
+
+	.buttons{
+		.button{
+			position:relative;
+			.badge{
+				padding:($padding-default - 14) ($padding-default - 10) 0 ($padding-default - 10);
+				background-color: $secondary-color-light;
+				font-size:($font-size-small - 1);
+				color:$white;
+				position:absolute;
+				right:0;
+				top:2px;
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+.popup-container .popup{
+	width: 300px;
+	background-color: $white;
+	@include border-radius(2px);
+	color:$white;
+
+	.popup-head{
+		background-color:$positive;
+		@include border-radius(2px);
+
+		h3{
+			color:$white;
+			font-size:$font-size-large;
+		}
+	}
+	.popup-body{
+		font-size:$font-size-xbase;
+		color:$secondary-text-color;
+
+		h3{
+			color:$secondary-text-color-dark;
+			font-size:$font-size-large;
+			margin-bottom: 0;
+		}
+		ul{
+			margin-bottom: 5px;
+			li{
+				margin-top: 15px;
+				margin-left: 20px;
+				line-height: 20px;
+				list-style-type: circle;
+				span{
+					font-family: $font-family-medium-roboto;
+					color:$primary-color-light;
+					display: block;
+				}
+			}
+		}
+		.coupon-popup{
+			li{
+				padding: 10px;
+				display: block;
+				margin-left: 0;
+				margin-top: 0;
+				margin-bottom: 10px;
+				background-color:lighten($secondary-text-color-light, 20%);
+
+				span{
+					display: inline;
+					color: $secondary-text-color-dark;
+				}
+				p{
+					margin-left: 0;
+					margin-top: 7px;
+				}
+			}
+		}
+		p{
+			font-size:$font-size-base;
+			color:$secondary-text-color;
+			margin-bottom: 0;
+			margin-left: 5px;
+		}
+	}
+	.popup-buttons{
+
+		
+	}
+}

@@ -1,0 +1,26 @@
+.home-page{
+	.category-panel{
+		padding-top:0;
+		margin-bottom:$margin-default;
+		width: 100%;
+	}
+	.category-panel.category-panel-v3{
+		margin-bottom:( $margin-default + 45);
+		width: 100%;
+	}
+	
+
+	.product-panel{
+		.tabs{
+			margin-top:-4px;
+			position: relative;
+			top: 0px !important;
+		}
+		.product-title-panel{
+			padding-left: 15px;
+			margin-bottom: 0;
+			font-size: $font-size-large;
+		}
+	}
+
+}

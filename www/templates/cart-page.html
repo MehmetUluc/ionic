@@ -1,0 +1,72 @@
+<ion-view animation="slide-left-right" class="cart-page">
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear ion-android-arrow-back" ng-click="goBack()"></a>
+        </div>
+        <h1 class="title" translate>My Cart</h1>
+        <div class="buttons">
+            <a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+    <ion-content class="cart-panel has-header" ng-class="{'has-footer': cartArray.length!=0}">
+
+        <div class="list list-cart" ng-repeat="product in cartArray ">
+
+            <div class="item">
+                <h2 class="item-title">
+                    <!--{{product.model}}-->
+                    {{product.products_name}}<br>
+                    <!-- {{product.category_Id}} -->
+                   <small> {{product.categories_name}}</small>
+                </h2>
+            </div>
+
+            <div class="item item-thumbnail-left">
+                <div class="item-image">
+                    <img class="image" src="{{mainUrl+product.image}}" alt="image">
+                </div>
+                <p class="item-number">{{'Price' |translate}}&nbsp;:&nbsp;<span class="pull-right">{{product.price| currency}}</span></p>
+                <p class="item-number" ng-repeat="att in product.attributes" style="margin-top:5px;">{{att.products_options_values+'&nbsp;'+att.products_options}}&nbsp;:<span class="pull-right">{{att.price_prefix +'&nbsp;'+ att.options_values_price+'&nbsp;'+currencySymbol}}</span></p>
+                <div class="item-quantity">{{'Quantity' |translate}}&nbsp;:&nbsp;
+                    <div class="item-quantity-cn pull-right">
+                        <a class="icon ion-android-remove-circle" ng-click="qunatityMinus(product);"></a>
+                        <span>{{product.customers_basket_quantity}}</span>
+                        <a class="icon ion-android-add-circle" ng-click="qunatityPlus(product);"></a>
+                    </div>
+                </div>
+
+                <p class="item-price">{{'Sub Total' |translate}}&nbsp;:&nbsp;<span class="pull-right">{{product.total | currency}}</span></p>
+                <!--<p style="color:red;" ng-if="product.customers_basket_quantity==product.quantity">Sorry Quantity is Limited</p>-->
+
+            </div>
+
+            <div class="item item-body">
+                <!-- <ul class="item-attr">
+                    <li ng-repeat="att in product.attributes">{{att.products_options}}&nbsp;:&nbsp;{{att.name}}</li>
+                </ul> -->
+                <button class="button button-stable button-stone-1 button-sm" ng-click="getSingleProductDetail(product.products_id)" translate>View</button>
+                <button class="button button-clear button-assertive button-stone-2 button-sm" ng-click="removeCart(product.products_id);"
+                    translate>Remove</button>
+            </div>
+
+
+        </div>
+        <div class="list list-inset" ng-if="cartArray.length!=0">
+            <button class="button button-block button-royal" style="margin-top:0;"  ui-sref="menu.products" translate>Explore More</button>
+        </div>
+        <div class="empty-content" ng-if="cartArray.length==0">
+            <div class="empty-content-inner">
+                <span class="icon ion-android-cart"></span>
+                <h4 translate>Your cart is empty</h4>
+                <h4 translate>continue shopping</h4>
+                <button class="button button-block button-royal" ui-sref="menu.products" translate>Explore</button>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="effect" ng-if="cartArray.length!=0">
+        <div class="item-total">{{'Total'|translate}}&nbsp;:&nbsp;<span>{{total| currency}}</span></div>
+        <h1 class="title"></h1>
+        <button class="button button-royal" ng-click="proceedToCheckOut()" translate>Proceed</button>
+    </ion-footer-bar>
+</ion-view>

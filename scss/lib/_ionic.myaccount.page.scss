@@ -1,0 +1,61 @@
+.account-panel{
+	@extend.content-panel;
+	
+	.list{
+		background-color: transparent;
+		text-align: center;
+
+		h4{
+			color: $secondary-text-color-dark;
+			text-align:left;
+			font-size:$font-size-xbase;
+			margin-top:0;
+		}
+		.button{
+			margin-bottom: 0;
+		}
+	}
+	.list-password{
+		margin-top: 0;
+		margin-bottom: 55px;
+	}
+	.list-account-image{
+		margin-top:$margin-default;
+		.account-image{
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			width: 120px;
+			
+			.fa-item{
+				background-color:$white;
+				font-size:50px;
+				margin-left: auto;
+				margin-right: auto;
+				width:120px;
+				height:120px;
+				border-radius:200px;
+				line-height:110px;
+				text-align:center;
+				color:lighten($icon-color-light, 10%);
+				overflow:hidden;
+
+				.image{
+					width:100%;
+				}
+			}
+			.fa-camera{
+				font-size: 20px;
+				position: absolute;
+				background-color:darken($icon-color-light, 10%);
+				bottom: 0;
+				line-height: 40px;
+				width: 40px;
+				height: 40px;
+				right: -10px;
+				border-radius: 200px;
+				color: $white;
+			}
+		}		
+	}
+}

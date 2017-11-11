@@ -1,0 +1,89 @@
+<ion-view view-title="Customer Orders">
+	<div class="bar bar-positive bar-header">
+		<div class="buttons">
+			<a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+		</div>
+		<h1 class="title" translate>Customer Orders</h1>
+		<div class="buttons">
+			<a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+			<a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+		</div>
+	</div>
+	<ion-content class="myorder-panel content-panel has-header" ng-controller="myOrdersController">
+		<ion-refresher pulling-text="Pull to refresh..." on-refresh="getOrders()"> </ion-refresher>
+		<div class="empty-content" ng-if="orders.length==0 && httpRunning == false">
+			<div class="empty-content-inner">
+				<span class="icon ion-ios-briefcase-outline"></span>
+				<h4 translate>Your Order List is Empty</h4>
+				<button class="button button-block button-royal" ui-sref="menu.products" translate>Explore</button>
+			</div>
+		</div>
+		<div class="list list-order-status">
+			<div class="item" ng-repeat="order in orders| orderBy:'-'" ng-click="showOrderDetail(order)">
+				<div class="row">
+					<div class="col col-50">
+						<h3>{{'Order ID'|translate}}</h3>
+					</div>
+					<div class="col col-50">
+						<span>{{'#'+order.orders_id}}</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<h3>{{'Date'|translate}}</h3>
+					</div>
+					<div class="col">
+						<span>{{order.last_modified}}</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<h3>{{'Price'|translate}}</h3>
+					</div>
+					<div class="col">
+						<span>{{order.order_price+' USD'}}</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-50">
+						<h3>{{'Status'|translate}}</h3>
+					</div>
+					<div class="col col-50">
+						<span ng-class="{'label-pending':order.orders_status=='Pending', 'label-cancel':order.orders_status=='Cancel', 'label-complete':order.orders_status=='Completed'}">{{order.orders_status}}</span>
+					</div>
+				</div>
+
+				<!-- <div class="row odd">
+					<div class="col">
+						<h3>{{'No. of Products'|translate}}</h3>
+						<span>{{order.data.length}}</span>
+					</div>
+				</div>
+				<div class="row even">
+					<div class="col">
+						<h3>{{'Shipping Method'|translate}}</h3>
+						<span>{{order.shipping_method}}</span>
+					</div>
+				</div>
+				<div class="row odd">
+					<div class="col">
+						<h3>{{'Shipping Cost'|translate}}</h3>
+						<span>{{order.shipping_cost}}</span>
+					</div>
+				</div>
+				<div class="row even">
+					<div class="col">
+						<h3>{{'Payment Method'|translate}}</h3>
+						<span>{{order.payment_method}}</span>
+					</div>
+				</div> -->
+
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>

@@ -1,0 +1,72 @@
+<ion-view>
+	<div class="bar bar-positive bar-header">
+		<a class="button button-clear button-light ion-android-arrow-back" href="#/menu/cart"></a>
+		<h1 class="title" translate>Shipping Address</h1>
+		 <div class="buttons">
+            <!--<a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>-->
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+	</div>
+			<form class="form" name="$parent.shippingForm" ng-submit="addShipping(shippingForm)">
+	<ion-content class="shipping-panel content-panel has-header has-footer">
+		
+			<div class="list list-inset">
+				<label class="item item-input">
+				  <span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+				  <input type="text" placeholder="{{'First Name'|translate}}" ng-model="orderDetails.delivery_firstname"  required>
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+			  </label>
+				<label class="item item-input">
+				  <span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
+				  <input type="text" placeholder="{{'Last Name'|translate}}" ng-model="orderDetails.delivery_lastname"  required>
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+			  </label>
+				<label class="item item-input">
+				  <span class="fa fa-map-marker placeholder-icon" aria-hidden="true"></span>
+				  <input type="text" placeholder="{{'Address'|translate}}" ng-model="orderDetails.delivery_street_address" required>
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+			  </label>
+      	<label class="item item-input" ng-click="openModal('country')">
+				  <span class="fa fa-globe placeholder-icon" aria-hidden="true"></span>
+				  <input readonly type="text" placeholder="{{'Country'|translate}}" ng-model="orderDetails.delivery_country"  required>
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+
+				<label class="item item-input" ng-click="openModal('zone')">
+				  <span class="fa fa-flag-checkered placeholder-icon" aria-hidden="true"></span>
+				  <input readonly type="text" placeholder="{{'Zone'|translate}}" ng-model="orderDetails.delivery_zone">
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+				</label>
+
+				<label class="item item-input">
+				  <span class="fa fa-building-o placeholder-icon" aria-hidden="true"></span>
+				  <input type="text" placeholder="{{'City'|translate}}" ng-model="orderDetails.delivery_city"  required> 
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+			  </label>
+				<label class="item item-input">
+				  <span class="fa fa-list-alt placeholder-icon" aria-hidden="true"></span>
+				  <input type="text" placeholder="{{'Post code'|translate}}" ng-model="orderDetails.delivery_postcode"  required>
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+			  </label>
+				<!-- <label class="item item-input">
+				   <span class="fa fa-phone-square placeholder-icon" aria-hidden="true"></span>
+				  <input type="tel" placeholder="{{'Phone'|translate}}" ng-model="orderDetails.delivery_telephone"  required>
+				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
+				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
+			  </label> -->
+			</div>
+
+		
+	</ion-content>
+	<div class="bar bar-footer bar-cstm">
+		<button class="button button-full button-royal" translate>Next</button>
+	</div>
+	</form>
+</ion-view>

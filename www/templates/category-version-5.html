@@ -1,0 +1,35 @@
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+        </div>
+        <h1 class="title" translate>Categories</h1>
+        <div class="buttons">
+            <a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+    <ion-content class="category-panel category-panel-v2 content-panel has-header" lazy-scroll on-scroll="onScroll()" delegate-handle="category">
+        <!--============================================================================================================-->
+        <div class="list list-category" ng-repeat="cat in categories" ng-if="cat.parent_id==0">
+
+            <div class="item item-divider">
+                <div class="category-title">
+                    <h2>{{cat.name}}</h2>
+                    <p>{{cat.total_products}}   Products</p>
+                </div>
+            </div>
+            <a class="item item-icon-right" ng-repeat="subCat in categories" ng-if="cat.id==subCat.parent_id" ng-click="getProducts(subCat.name,subCat.id)">
+                <div class="category-title">
+                    <h2>{{subCat.name}}</h2>
+                    <p>{{subCat.total_products}}   Products</p>
+                </div>
+                <div class="thumb">
+                    <img class="image" image-lazy-src="{{mainUrl+subCat.image}}">
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

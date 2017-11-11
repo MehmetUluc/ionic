@@ -1,0 +1,124 @@
+.login-panel{
+	padding-top: $padding-default;
+	@extend.content-panel;
+	text-align: center;
+	.list{
+		margin-bottom:$margin-default;
+		background-color: transparent;
+
+		.item-social-button{
+			.row{
+				padding: 0;
+				.col{
+					padding-top: 0;
+					padding-bottom: 0;
+					.button{
+						margin-top: 0;
+						margin-bottom: 0;
+						display: flex;
+						justify-content: center;
+						line-height: 20px;
+					}
+				}
+				.col:first-child{
+					padding-left: 0;
+				}
+				.col:last-child{
+					padding-right: 0;
+				}
+			}
+			.divide-hline{
+				margin-top: ($margin-default - 5);
+				strong{
+					color:$secondary-text-color;
+				}
+			}
+		}
+		.button{
+			margin-bottom: 0;
+		}
+		.error-code{
+			display: block;
+			color:$assertive;
+			margin-top:  ($margin-default - 10);
+			margin-bottom:  ($margin-default - 5);
+			background-color: $white;
+			padding-top: ($padding-default - 10);
+			padding-bottom: ($padding-default - 10);
+			padding-left: ($padding-default - 10);
+			padding-right: ($padding-default - 10);
+
+			.icon{
+				margin-right: ($margin-default - 10);
+			}
+		}
+		// p{
+		// 	font-size:$font-size-base;
+		// 	color:$secondary-text-color;
+		// }
+	}
+
+	.list-logo{
+		.image{
+			width: 150px;
+			opacity: 0.30;
+			border: 2px solid $white;
+    		border-radius: 200px;
+		}
+	}
+
+	.list-account-image{
+
+		.account-image{
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			width: 120px;
+			
+			.fa-item{
+				background-color:$white;
+				font-size:50px;
+				margin-left: auto;
+				margin-right: auto;
+				width:120px;
+				height:120px;
+				border-radius:200px;
+				line-height:110px;
+				text-align:center;
+				color:lighten($icon-color-light, 10%);
+				overflow:hidden;
+
+				.image{
+					width:100%;
+				}
+			}
+			.fa-camera{
+				font-size: 20px;
+				position: absolute;
+				background-color:darken($icon-color-light, 10%);
+				bottom: 0;
+				line-height: 40px;
+				width: 40px;
+				height: 40px;
+				right: -10px;
+				border-radius: 200px;
+				color: $white;
+			}
+		}		
+	}
+
+	.list-login-bottom{
+		
+		.login-bottom-button{
+			display:block; 
+			font-size:$font-size-xlarge;
+			color:$secondary-color-dark;			
+		}
+		.login-bottom-text{
+			display:block;
+			font-size:$font-size-base;
+			margin-bottom:$margin-default;
+			color:$secondary-text-color;
+		}
+	}
+}

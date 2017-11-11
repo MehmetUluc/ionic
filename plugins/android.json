@@ -1,0 +1,71 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-datepicker": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "1044432838358",
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravelDemo_2"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravelDemo_2"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravel"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.vectorCoder.ecommerceLaravelDemo_2"
+        }
+    }
+}

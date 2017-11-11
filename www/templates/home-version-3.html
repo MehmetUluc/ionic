@@ -1,0 +1,132 @@
+<!-- Main Home View, Controller name homeController  -->
+<ion-view>
+    <div class="bar bar-positive bar-header">
+        <div class="buttons">
+            <a class="button button-clear" menu-toggle="left">
+                <img class="icon" src="img/menu-icon.svg" alt="icon">
+            </a>
+        </div>
+        <h1 class="title title-page-logo">
+            <img class="image" src="{{logoMini}}" alt="logo"/>ECOMERECE
+        </h1>
+        <div class="buttons">
+            <a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
+            <a class="button button-clear ion-bag" href="#/menu/cart"><span class="badge">{{cartTotalItems()}}</span></a>
+        </div>
+    </div>
+
+    <div class="tabs-all-panel tabs-all-top-panel" ng-class="{'invisible':!showHeaderTabs}">
+        <div class="tabs-all-swiper swiper-container" ng-class="{'disable':serviceRunning}">
+            <div class="swiper-wrapper" ng-disabled="true">
+                <div class="swiper-slide swiper-slide-v3" ng-class="{'tabs-swiper-slide-active':catId == ''}" ng-click="setCategoryId('')">
+                    <img class="image" src="img/cat_default.svg">
+                    <span class="category-title-v3" translate>Shop</span>
+                </div>
+                <div class="swiper-slide swiper-slide-v3" ng-class="{'tabs-swiper-slide-active':catId == tab.id}" ng-repeat="tab in categories | filter : tabFilter"
+                    ng-click="setCategoryId(tab.id)">
+                    <img class="image" src="{{mainUrl+tab.icon}}" >
+                    <span class="category-title-v3">{{tab.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ion-content class="home-page content-panel has-header"  on-scroll="onScroll()" delegate-handle="home" scrollbar-y="false"
+        lazy-scroll on-release="lazyScroll()">
+
+        <div class="carousal">
+            <div class="home-swiper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="image in imageSliderArray" on-finish-render="ngRepeatFinished">
+                        <img src="{{mainUrl+image.image}}" ng-click="imageClick(image)">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div id="scrollTo"></div>
+        <div class="tabs-all-panel infinteScroll">
+            <div class="tabs-all-swiper swiper-container sticky-tabs" ng-class="{'disable':serviceRunning}">
+                <div class="swiper-wrapper" ng-disabled="true">
+                    <div class="swiper-slide swiper-slide-v3" ng-class="{'tabs-swiper-slide-active':catId == ''}" ng-click="setCategoryId('')">
+                        <img class="image" src="img/cat_default.svg">
+                        <span class="category-title-v3" translate>Shop</span>
+                    </div>
+                    <div class="swiper-slide swiper-slide-v3" ng-class="{'tabs-swiper-slide-active':catId == tab.id}" ng-repeat="tab in categories | filter : tabFilter"
+                        on-finish-render="ngRepeatFinished4" ng-click="setCategoryId(tab.id)">
+                        <img class="image" src="{{mainUrl+tab.icon}}">
+                        <span class="category-title-v3">{{tab.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="filters-panel">
+            <h4><span>{{totalProducts}}</span>&nbsp;{{'Products are available.'|translate}}</h4>
+            <div class="buttons">
+                <button class="button-icon button-positive">
+                    <span class="ion-navicon" ng-click="changeLayout('list')" ng-if="productsLayout=='grid'"></span>
+                    <span class="ion-grid" ng-click="changeLayout('grid')" ng-if="productsLayout=='list'"></span>
+                </button>
+                <button class="button-icon button-positive fa fa-retweet" ng-click="resetFilter();" ng-if="catId != ''" ng-disabled="disableResetButton()"></button>
+                <button class="button-icon button-energized fa fa-filter" ng-if="catId != ''" menu-toggle="right"></button>
+            </div>
+        </div>-->
+        <div class="products products-panel" ng-if="productsLayout=='grid'">
+            <div class="item-single item-single-both col col-50" ng-repeat="product in products track by $index">
+                <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+                
+                <div class="item-thumb" ng-click="showProductDetail(product)">
+                    <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+                    <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
+                </div>
+                <h6 class="item-title">{{product.products_name}}</h6>
+
+                <div class="row item-price-row">
+                    <div class="col col-75 text-left item-price">
+                        <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                        <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                        <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                    </div>
+                    <div class="col col-25 text-right item-like">
+                        <a class="fa" ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+                    </div>
+                </div>
+                <button class="button button-block button-royal" ng-click="addToCart(product);"  ng-if="settings.cartButton==true && product.products_quantity!=0" translate>ADD TO CART</button>
+                <button class="button button-block button-assertive" ng-if="settings.cartButton==true && product.products_quantity==0" translate>OUT OF STOCK</button>
+                <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                    <span class="fa fa-check"></span>
+                </div>
+            </div>
+        </div>
+        <div class="products all-products" ng-if="productsLayout=='list'">
+            <div class="list">
+
+                <div class="item-single item-thumbnail-left col" ng-repeat="product in products track by $index">
+                    <img image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}" ng-click="showProductDetail(product)">
+
+                    <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
+                    <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
+
+                    <h6 class="item-title">{{product.products_name}}</h6>
+
+                    <div class="row item-price-row">
+                        <div class="col col-75 text-left item-price">
+                            <span class="item-price-normal" ng-if="product.discount_price==null">{{product.products_price | currency}}</span>
+                            <span class="item-price-normal-through" ng-if="product.discount_price!=null">{{product.products_price | currency}}</span>
+                            <span class="item-price-discount">{{product.discount_price | currency}}</span>
+                        </div>
+                        <div class="col col-25 text-right item-like">
+                            <a class="fa " ng-class="product.isLiked=='0'? 'fa-heart-o' : 'fa-heart'" ng-click="likeProduct(product)"></a>
+                        </div>
+                    </div>
+                    <button class="button button-royal" ng-click="addToCart(product);" ng-if="settings.cartButton==true" translate>ADD TO CART</button>
+                    <div class="item-add-cart" ng-if="isInCart(product.products_id)" ng-click="showProductDetail(product)">
+                        <span class="fa fa-check"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="falseInfinte" distance="1%"> </ion-infinite-scroll>
+        <!--<p class="no-more-load text-center" ng-if="!falseInfinte"> no more data to load</p>-->
+    </ion-content>
+    <button class="button button-positive button-fab" ng-click="scrollToTop()" ng-hide="hideScrollButton"><span class="icon ion-android-arrow-up"></span></button>
+</ion-view>

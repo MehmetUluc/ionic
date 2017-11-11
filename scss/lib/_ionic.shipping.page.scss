@@ -1,0 +1,35 @@
+.bar.bar-cstm{
+	padding: 0;
+	.button{
+		margin-top: 0;
+		margin-bottom: 0;
+		border-radius: 0;
+	}
+}
+.shipping-panel{
+	.list{
+		background-color: transparent;
+		margin-top: 10px;
+		margin-bottom: 0;
+
+		.item{
+			
+			h2{
+				white-space:normal;
+				font-size:$font-size-xbase;
+			}
+			.icon{
+				font-size:$font-size-large;
+				text-decoration:none;
+				padding-top:($padding-default - 10);
+				padding-bottom:($padding-default - 10);
+			}
+			.ion-edit{
+				color:$secondary-color-light;
+			}
+			.ion-android-radio-button-off, .ion-android-radio-button-on{
+				color:$secondary-color-dark;
+			}
+		}
+	}
+}
