@@ -74,4 +74,6 @@
   </platform>
   <icon src="resources/ios/icon/icon-small@3x.png"/>
         <plugin name="cordova-plugin-camera" />
+        <plugin name="cordova-plugin-whitelist" />
+        
 </widget>
