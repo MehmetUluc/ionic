@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget 
-        id="com.vectorCoder.tacettin"
-        version="0.0.1"
+        id="com.pekiweb.esoes"
+        version="0.0.2"
         xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
         versionCode="1">
   
-  <name>Ionic Demo_2</name>
-  <description>&#xD;
-        An Ionic Framework and Cordova project.&#xD;
+  <name>ESOES</name>
+  <description>&#xD;ESOES Mobil Uygulama&#xD;
   </description>
-  <author email="ionic.vectorcoder@gmail.com" href="http://ionicecommerce.com/">&#xD;
+  <author email="pekiweb@pekiweb.com" href="http://esoesdurum.com">&#xD;
      Pekiweb
   </author>
   <content src="index.html"/>
