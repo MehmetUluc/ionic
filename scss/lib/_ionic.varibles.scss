@@ -60,6 +60,7 @@ $dark:                            #444 !default;
 	  url('../fonts/fontawesome-webfont.ttf')  format('truetype'),
 	  url('../fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
 }
+
 @font-face {
   font-family: 'Pasajero';
   src:url('../fonts/Pasajero/Pasajero.eot?#iefix') format('embedded-opentype'),
@@ -67,6 +68,7 @@ $dark:                            #444 !default;
 	  url('../fonts/Pasajero/Pasajero.ttf')  format('truetype'),
 	  url('../fonts/Pasajero/Pasajero.svg#Pasajero') format('svg');
 }
+
 
 // fonts
 // -------------------------------
@@ -123,30 +125,30 @@ $button-google-active-border:     	darken($google, 10%)!default;
 // buttons colors
 // -------------------------------------------------
 
-$royal:							#557F5F !default; // *secondary-color // buttons-royal
+$royal:							#ff7246 !default; // *secondary-color // buttons-royal
 $stable:                        #f8f8f8 !default; // background color of footer
 
 
 // Primary-color-light
-$primary-color-light:			#8096bf !default; // optional color
+$primary-color-light:			#ff7c74 !default; // optional color
 // Primary-color-default
-$positive:						#51688F !default; // background color of page header
+$positive:						#D14B48 !default; // background color of page header
 // Primary-color-dark
-$primary-color-dark:			#233e61 !default; // background color of intro Screen
+$primary-color-dark:			#9a1320 !default; // background color of intro Screen
 
 // secondary-color-light
-$secondary-color-light:			#83af8c !default; // background color of badge icon, heart icon, edit icon, check icon, quantity icons and calender icon.
+$secondary-color-light:			#ffa473 !default; // background color of badge icon, heart icon, edit icon, check icon, quantity icons and calender icon.
 // secondary-color-default
-$secondary-color:				#557f5f !default; // *(color use for button-royal background)
+$secondary-color:				#ff7246 !default; // *(color use for button-royal background)
 // secondary-color-dark
-$secondary-color-dark:			#2a5235 !default; // color of currency text
+$secondary-color-dark:			#c6411a !default; // color of currency text
 
 
 // Accent-colors
 $accent-color-a:				#ff0000 !default; // color of input error state and stock text
 $accent-color-b:				#03a9f4 !default; // color of input success state, signup anchor text
 
-$accent-color-c:				#da0000 !default; // background color of product new tag
+$accent-color-c:				#ffa473 !default; // background color of product new tag
 $accent-color-d:				#03a9f4 !default; // background color of discount price tag.
 
 
@@ -178,7 +180,7 @@ $button-stable-bg:                $stable !default;
 // Bars
 // -------------------------------
 
-//$bar-title-font-size:             $font-size-xbase !default;
+//$bar-title-font-size:             $font-size-large !default;
 //$bar-padding-portrait:            10px !default;
 //$bar-padding-landscape:           10px !default;
 

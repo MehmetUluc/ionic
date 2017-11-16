@@ -40,6 +40,7 @@
 			margin-top: -4px;
 			position: relative;
 			top: 0px !important;
+			
 		}
 		.tabs{
 			.tab-item{
@@ -51,7 +52,7 @@
 			background-color: transparent;
 
 			.category-panel{
-				
+
 				width: 100%;
 
 				.col-category-panel{
@@ -99,6 +100,7 @@
 				height: 100%;
 				width: 100px;
 				overflow: hidden;
+
 				.thumb{
 					position: relative;
 					height: 100%;
@@ -162,9 +164,9 @@
 					margin-bottom: 8px;
 					width: 100%;
 					height: auto;
-						strong{
-						font-weight: normal;
-					}
+					strong{
+					font-weight: normal;
+				}
 				}
 			}
 		}
