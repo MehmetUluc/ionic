@@ -6992,7 +6992,7 @@ angular.module('ngCordova.plugins.statusbar', [])
     // black, darkGray, lightGray, white, gray, red, green,
     // blue, cyan, yellow, magenta, orange, purple, brown
     styleColor: function (color) {
-      return StatusBar.backgroundColorByName(color);
+      return StatusBar.backgroundColorByName('black');
     },
 
     styleHex: function (colorHex) {
