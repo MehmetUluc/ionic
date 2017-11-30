@@ -6996,7 +6996,7 @@ angular.module('ngCordova.plugins.statusbar', [])
     },
 
     styleHex: function (colorHex) {
-      return StatusBar.backgroundColorByHexString('#FFFFFF');
+      return StatusBar.backgroundColorByHexString('#000000');
     },
 
     hide: function () {
