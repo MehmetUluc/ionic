@@ -13,7 +13,7 @@
     </div>
     
     <ion-content class="category-panel content-panel has-header" lazy-scroll on-scroll="onScroll()" delegate-handle="category">
-        <div class="col col-50 col-category-panel" ng-repeat="cat in categories" ng-click="getSubcategories(cat.name,cat.id)"
+        <div class="col col-50 col-category-panel" ng-repeat="cat in categories" ng-click="getProducts(cat.name,cat.id)"
             style="background-image: url({{mainUrl+cat.image}})" ng-if="cat.parent_id==0">
             <div class="image-overlay"></div>
             <div class="category-title">
