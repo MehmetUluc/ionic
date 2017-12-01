@@ -17,5 +17,5 @@ var config = {
     notifTitle: 'Lets Shop',//title text for notificaiton
     notifText: 'Bundle of products waiting for you!',// string message for notificaion
     notifDuration: 'day',//nofitication repatition duration can be value of second, minute, hour, day, week, month or year
-    pushNotificationSenderId: '1044432838358',
+    pushNotificationSenderId: '6958308487',
 };
