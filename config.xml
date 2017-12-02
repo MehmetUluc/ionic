@@ -71,6 +71,8 @@
     <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
+	  <resource-file src="GoogleService-Info.plist" />
+
   </platform>
   <icon src="resources/ios/icon/icon-small@3x.png"/>
         <plugin name="cordova-plugin-camera" spec="2.3.1" />
