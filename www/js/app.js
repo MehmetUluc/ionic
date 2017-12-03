@@ -183,6 +183,16 @@ angular.module('starter', ['ionic', 'ecommerce.controllers', 'ngOpenFB', 'ngStor
           }
         }
       })
+	  .state('menu.logOut', {
+        cache: false,
+        url: '/logout',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/logout.html',
+            controller: 'logoutController'
+          }
+        }
+      })
 
 
       // .state('menu.categories', {
