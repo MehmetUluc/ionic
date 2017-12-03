@@ -13377,7 +13377,10 @@ button.swiper-pagination-bullet {
       color: #ffffff;
       text-transform: capitalize;
       margin-top: 0;
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      cursor: pointer;
+      position: relative;
+      z-index: 99999; }
     .side-panel .side-user-panel .side-user-panel-inner p {
       font-family: "Roboto-Regular";
       font-size: 13px;

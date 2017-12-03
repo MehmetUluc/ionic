@@ -45,6 +45,9 @@
 				text-transform: capitalize;
 				margin-top:0;
 				margin-bottom:0;
+				cursor:pointer;
+				position:relative;
+				z-index:99999;
 			}
 			p{
 				font-family:$font-family-regular-roboto;
