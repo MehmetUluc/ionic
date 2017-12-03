@@ -123,11 +123,11 @@
 		<div class="list">
 			<label class="item item-input item-select">
 				<div class="input-label" translate>
-					Ödeme Yöntemi
+					Payment
 				</div>
 				<select ng-model="orderDetail.payment_method">
 				<option value="nakit">Nakit Ödeme</option>
-				<option value="pos">Pos Cihazı İle  Ödeme</option>
+				<option value="cash_on_delivery">Pos Cihazı İle  Ödeme</option>
 				</select>
 			</label>
 
@@ -179,7 +179,12 @@
 		</div>
 
 		<div class="list">
-			<div class="cash-on-delivery" ng-show="orderDetail.payment_method=='cash_on_delivery'">
+			<div class="cash-on-delivery" ng-show="orderDetail.payment_method=='nakit'">
+				<button class="button button-block button-royal" ng-click="addOrder()" translate>Continue</button>
+			</div>
+		</div>
+		<div class="list">
+			<div class="cash-on-delivery" ng-show="orderDetail.payment_method=='pos'">
 				<button class="button button-block button-royal" ng-click="addOrder()" translate>Continue</button>
 			</div>
 		</div>
