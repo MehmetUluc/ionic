@@ -29,7 +29,7 @@
                 <div class="side-user-panel-inner">
                     <h4>{{customerData.customers_firstname +"&nbsp;"+customerData.customers_lastname}}</h4>
                     <p style="margin-bottom: 7px;">{{customerData.customers_email_address}}</p>
-                    <h4 ng-click="logOut()" translate>Log Out</h4>
+                    <!--<h4 ng-click="logOut()" translate>Log Out</h4>--<
                 </div>
 
             </div>
@@ -86,6 +86,8 @@
                 <a class="item item-icon-left item-divide" menu-close ui-sref="menu.myAccount" ui-sref-active="item-active" ng-if="customerData!=null">
                     <span class="icon ion-android-lock" aria-hidden="true"></span>{{'My Account'|translate}}
                 </a>
+				
+				
                 <a class="item item-icon-left item-divide" menu-close ui-sref="menu.allShippingAddress" ui-sref-active="item-active" ng-if="customerData!=null">
                     <span class="icon ion-android-car" aria-hidden="true"></span>{{'Shipping Address'|translate}}
                 </a>
@@ -107,6 +109,9 @@
                 </a>
                 <a class="item item-icon-left" menu-close ui-sref="menu.settings" ui-sref-active="item-active">
                     <span class="icon ion-gear-a" aria-hidden="true"></span>{{'Settings'|translate}}
+                </a>
+				<a class="item item-icon-left item-divide" ng-click="logOut()" ng-if="customerData!=null">
+                    <span class="icon ion-android-lock" aria-hidden="true"></span>{{'Çıkış Yap'|translate}}
                 </a>
 
             </ion-list>
