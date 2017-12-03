@@ -136,12 +136,10 @@
     "phonegap-plugin-push": {
         "source": {
             "type": "registry",
-            "id": "phonegap-plugin-push@1.10.5"
+            "id": "phonegap-plugin-push@1.8.1"
         },
         "is_top_level": true,
-        "variables": {
-            "SENDER_ID": "1044432838358"
-        }
+        "variables": {}
     },
     "de.appplant.cordova.plugin.local-notification": {
         "source": {

@@ -6,8 +6,8 @@
 
     <ion-side-menu class="left" side="left">
         <ion-header-bar class="bar-positive">
-            <h1 class="title title-menu-logo"><img class="image" src="{{logoMini}}" alt="logo"/>ECOMERECE</h1>
-            <a class="button button-clear ion-ios-world-outline" ng-click="showModal('selectLanguage')"></a>
+            <h1 class="title title-menu-logo"><img class="image" style="height:25px; width:108px" src="{{logoMini}}" alt="logo"/></h1>
+            <a style="visibility:hidden" class="button button-clear ion-ios-world-outline" ng-click="showModal('selectLanguage')"></a>
         </ion-header-bar>
 
         <ion-content class="side-panel ">
@@ -36,18 +36,27 @@
 
             <ion-list class="side-menu">
 
-                <div ng-repeat="group in groups">
+                <!-- <div ng-repeat="group in groups">
                     <div class="item item-icon-left item-icon-right item-divide" ng-click="toggleGroup(group)" ng-class="{'active':isGroupShown(group) || currentState==group.url}">
                          <span class="icon {{group.icon}}"></span>
-                         <span class="icon" ng-class="isGroupShown(group)? 'ion-minus' : 'ion-plus'"></span>{{group.name|translate}}
+                         <span class="icon" ng-class="isGroupShown(group)? 'ion-minus' : 'ion-plus'"></span>
+                         {{group.name|translate}}
                     </div>
-                    <div class="item item-accordion hideEffect" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
+                    <!-- <div class="item item-accordion hideEffect" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
                         <a class="item item-icon-left item-divide" menu-close ng-click="openTemplate(group.url,item);" ng-class="{'item-active':group.url+item==selected}">
 
                             <span class="icon ion-ios-minus-empty" aria-hidden="true"></span>{{group.name|translate}}{{'-style-'+item}}
                         </a>
-                    </div>
-                </div>
+                    </div> -
+                </div> -->
+
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.home" ui-sref-active="item-active">
+                    <span class="icon ion-android-home" aria-hidden="true"></span>{{'Anasayfa'}}
+                </a>
+
+                <a class="item item-icon-left item-divide" menu-close ui-sref="menu.categories" ui-sref-active="item-active">
+                    <span class="icon ion-grid" aria-hidden="true"></span>{{ 'Kategoriler' }}
+                </a>
 
                 <a class="item item-icon-left item-icon-right item-divide" ng-click="showShopListFunc()" ui-sref-active="item-active">
                     <span class="icon fa fa-truck"></span> {{'Shop'|translate}}

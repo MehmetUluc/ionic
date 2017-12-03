@@ -7,7 +7,7 @@
             </a>
         </div>
         <h1 class="title title-page-logo">
-            <img class="image" src="{{logoMini}}" alt="logo"/>ECOMERECE
+            <img class="image" style="height:25px; width:108px" src="{{logoMini}}" alt="logo"/>
         </h1>
         <div class="buttons">
             <a class="button button-clear ion-ios-search-strong" href="#/menu/search"></a>
@@ -84,7 +84,7 @@
                             </div>
                             <h6 class="item-title text-center">View all</h6>
                             <div class="row item-price-row" style="visibility: hidden;">
-                                <div class="col col-75 text-left item-price"> 
+                                <div class="col col-75 text-left item-price">
                                 </div>
                                 <div class="col col-25 text-right item-like">
                                 </div>
@@ -101,7 +101,7 @@
                     <div class="swiper-slide" ng-repeat="product in special" on-finish-render="ngRepeatFinished2">
                         <div class="item-single">
                             <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
-                            
+
                             <div class="item-thumb" ng-click="showProductDetail(product)">
                                 <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
                                 <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
@@ -135,7 +135,7 @@
                             </div>
                             <h6 class="item-title text-center">View all</h6>
                             <div class="row item-price-row" style="visibility: hidden;">
-                                <div class="col col-75 text-left item-price"> 
+                                <div class="col col-75 text-left item-price">
                                 </div>
                                 <div class="col col-25 text-right item-like">
                                 </div>
@@ -153,7 +153,7 @@
 
                         <div class="item-single">
                             <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
-                            
+
                             <div class="item-thumb" ng-click="showProductDetail(product)">
                                 <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
                                 <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
@@ -187,7 +187,7 @@
                             </div>
                             <h6 class="item-title text-center">View all</h6>
                             <div class="row item-price-row" style="visibility: hidden;">
-                                <div class="col col-75 text-left item-price"> 
+                                <div class="col col-75 text-left item-price">
                                 </div>
                                 <div class="col col-25 text-right item-like">
                                 </div>
@@ -207,7 +207,7 @@
                     <div class="swiper-slide" ng-repeat="product in recentViewedArray" on-finish-render="ngRepeatFinished3">
                         <div class="item-single">
                             <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
-                            
+
                             <div class="item-thumb" ng-click="showProductDetail(product)">
                                 <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
                                 <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">
@@ -251,7 +251,7 @@
         <div class="products products-panel">
             <div class="item-single item-single-both col col-50" ng-repeat="product in products track by $index">
                 <span class="item-discount" ng-if="product.discount_price!=null">{{pDiscount(product.products_price,product.discount_price)}}<br>OFF</span>
-                
+
                 <div class="item-thumb" ng-click="showProductDetail(product)">
                     <span class="item-new" ng-if="checkProduct(product.products_date_added)"></span>
                     <img class="image" image-lazy-src="{{mainUrl+product.products_image}}" image-lazy-loader="{{lazyLoaderGif}}">

@@ -86,7 +86,7 @@ angular.module('starter', ['ionic', 'ecommerce.controllers', 'ngOpenFB', 'ngStor
 
 
 
-    //checking version of the device  
+    //checking version of the device
     var currentPlatformVersion = parseFloat(ionic.Platform.version());
     if (currentPlatformVersion < 4.4)
       $ionicConfigProvider.scrolling.jsScrolling(true);
@@ -136,14 +136,7 @@ angular.module('starter', ['ionic', 'ecommerce.controllers', 'ngOpenFB', 'ngStor
         params: { tempName: null },
         views: {
           'menuContent': {
-            templateUrl: function (stateParams) {
-              var homeTemplate = 1;
-              var template = stateParams.tempName;
-              if (template == null || template == undefined);
-              else homeTemplate = template;
-
-              return 'templates/home-version-' + homeTemplate + '.html'
-            },
+            templateUrl: 'templates/home-version-1.html',
             controller: 'homeController'
           }
         }
@@ -192,34 +185,34 @@ angular.module('starter', ['ionic', 'ecommerce.controllers', 'ngOpenFB', 'ngStor
       })
 
 
-      .state('menu.categories', {
-        cache: true,
-        url: '/categories',
-        params: { tempName: '1' },
-        views: {
-          'menuContent': {
-            templateUrl: function (stateParams) {
-              var template = stateParams.tempName;
-              if (template == null || template == undefined)
-                template = '1';
-              return 'templates/category-version-' + template + '.html'
-            },
-            controller: 'categoriesController'
-          }
-        }
-      })
-
       // .state('menu.categories', {
       //   cache: true,
       //   url: '/categories',
-      //   params: { tempName: null },
+      //   params: { tempName: '1' },
       //   views: {
       //     'menuContent': {
-      //       templateUrl: 'templates/category-version-1.html',
+      //       templateUrl: function (stateParams) {
+      //         var template = stateParams.tempName;
+      //         if (template == null || template == undefined)
+      //           template = '1';
+      //         return 'templates/category-version-' + template + '.html'
+      //       },
       //       controller: 'categoriesController'
       //     }
       //   }
       // })
+
+      .state('menu.categories', {
+        cache: true,
+        url: '/categories',
+        params: { tempName: null },
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/category-version-1.html',
+            controller: 'categoriesController'
+          }
+        }
+      })
 
       .state('menu.subcategories', {
         cache: true,

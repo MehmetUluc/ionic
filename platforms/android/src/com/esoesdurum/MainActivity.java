@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.vectorCoder.tacettin;
+package com.esoesdurum;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
