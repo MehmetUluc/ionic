@@ -1,4 +1,4 @@
- <ion-view view-title="{{'Thank You'|translate}}" ng-init="logOut()">
+ <ion-view data-ng-controller="logoutController" view-title="{{'Thank You'|translate}}" data-ng-init="logOut()">
      <div class="bar bar-positive bar-header">
     	<h1 class="title" translate>Thank You</h1>
     	<div class="buttons">
@@ -14,7 +14,7 @@
 				<button class="button button-block button-royal" ui-sref="menu.myOrders" translate>My Orders</button>
 				<a class="button button-clear button-block button-assertive" ui-sref="menu.home" translate>Continue Shopping</a>
 			</div>
-			
+
 		</div>
 	</ion-content>
  </ion-view>
