@@ -19,22 +19,11 @@ ecommerce.controller('billingAddressController', function ($scope, $ionicModal, 
         if (defaultCheckBox == true) {
             $rootScope.orderDetails.billing_firstname = $rootScope.orderDetails.delivery_firstname;
             $rootScope.orderDetails.billing_lastname = $rootScope.orderDetails.delivery_lastname;
-            $rootScope.orderDetails.billing_state = $rootScope.orderDetails.delivery_state;
-            $rootScope.orderDetails.billing_city = $rootScope.orderDetails.delivery_city;
-            $rootScope.orderDetails.billing_country = $rootScope.orderDetails.delivery_country;
-            $rootScope.orderDetails.billing_postcode = $rootScope.orderDetails.delivery_postcode;
-           // $rootScope.orderDetails.billing_telephone = $rootScope.orderDetails.delivery_telephone;
-            $rootScope.orderDetails.billing_zone = $rootScope.orderDetails.delivery_zone;
             $rootScope.orderDetails.billing_street_address = $rootScope.orderDetails.delivery_street_address;
         }
         else {
             $rootScope.orderDetails.billing_firstname = '';
             $rootScope.orderDetails.billing_lastname = '';
-            $rootScope.orderDetails.billing_state = '';
-            $rootScope.orderDetails.billing_city = '';
-            $rootScope.orderDetails.billing_postcode = '';
-           // $rootScope.orderDetails.billing_telephone = '';
-            $rootScope.orderDetails.billing_country = '';
             $rootScope.orderDetails.billing_street_address = '';
             $rootScope.orderDetails.billing_zone = '';
         }

@@ -14,11 +14,8 @@
         <div class="list list-inset">
             <div class="item-social-button">
                 <div class="row">
-                    <div class="col col-50">
+                    <div class="col col-100">
                         <button class="button button-block button-facebook" ng-click="facebookLogin()">{{ 'Login with' | translate }}&nbsp;<span class="fa fa-facebook" aria-hidden="true"></span></button>
-                    </div>
-                    <div class="col col-50">
-                        <button class="button button-block button-google" ng-click="googleLogin()">{{ 'Login with' | translate }}&nbsp;<span class="fa fa-google-plus" aria-hidden="true"></span></button>
                     </div>
                 </div>
                 <p class="divide-hline"><strong translate>or</strong></p>
@@ -30,19 +27,19 @@
                 <label class="item-input">
                     <span class="fa fa-envelope-o placeholder-icon" aria-hidden="true"></span>
                     <input type="email"  placeholder="{{ 'Email' | translate }}" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="loginData.customers_email_address" name="customers_email_address" required>
-                    
+
                     <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
                     <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
                 </label>
                 <label class="item-input">
                     <span class="fa fa-lock placeholder-icon" aria-hidden="true"></span>
-                    <input type="password" placeholder="{{ 'Password' | translate }}" name="customers_password" ng-model="loginData.customers_password" required> 
-                    
+                    <input type="password" placeholder="{{ 'Password' | translate }}" name="customers_password" ng-model="loginData.customers_password" required>
+
                     <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
                     <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
                 </label>
                 <button class="button button-block button-royal" type="submit" translate>Login</button>
-                
+
             </form>
 
 

@@ -9,7 +9,7 @@
 	</div>
 	<form class="form" name="$parent.billingForm" ng-submit="addBillingAddress(billingForm)">
 	<ion-content class="shipping-panel content-panel has-header has-footer">
-		
+
 			<div class="list list-inset">
 				<label class="item item-input">
 				  <span class="fa fa-user placeholder-icon" aria-hidden="true"></span>
@@ -29,19 +29,7 @@
 				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
 				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
 				</label>
-				<label class="item item-input" ng-click="openModal('country')">
-				  <span class="fa fa-globe placeholder-icon" aria-hidden="true"></span>
-				  <input readonly type="text" placeholder="{{'Country'|translate}}" ng-model="orderDetails.billing_country" required="required">
-				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
-				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
-				</label>
 
-				<label class="item item-input" ng-click="openModal('zone')">
-				  <span class="fa fa-flag-checkered placeholder-icon" aria-hidden="true"></span>
-				  <input readonly type="text" placeholder="{{'Zone'|translate}}" ng-model="orderDetails.billing_zone">
-				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
-				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
-				</label>
 
 				<!--<label class="item item-input">
 				  <span class="fa fa-map-o placeholder-icon" aria-hidden="true"></span>
@@ -49,18 +37,6 @@
 				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
 				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
 				</label>-->
-				<label class="item item-input">
-				  <span class="fa fa-building-o placeholder-icon" aria-hidden="true"></span>
-				  <input type="text" placeholder="{{'City'|translate}}" ng-model="orderDetails.billing_city" required="required">
-				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
-				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
-				</label>
-				<label class="item item-input">
-				  <span class="fa fa-list-alt placeholder-icon" aria-hidden="true"></span>
-				  <input type="text" placeholder="{{'Post code'|translate}}" ng-model="orderDetails.billing_postcode" required="required">
-				  <span class="fa fa-check-circle success-icon" aria-hidden="true"></span>
-				  <span class="fa fa-info-circle danger-icon" aria-hidden="true"></span>
-				</label>
 				<!-- <label class="item item-input">
 				  <span class="fa fa-phone-square placeholder-icon" aria-hidden="true"></span>
 				  <input type="tel" placeholder="{{'Phone'|translate}}" ng-model="orderDetails.billing_telephone" required="required">
