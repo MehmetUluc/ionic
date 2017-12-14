@@ -86,8 +86,8 @@
                 <a class="item item-icon-left item-divide" menu-close ui-sref="menu.myAccount" ui-sref-active="item-active" ng-if="customerData!=null">
                     <span class="icon ion-android-lock" aria-hidden="true"></span>{{'My Account'|translate}}
                 </a>
-				
-				
+
+
                 <a class="item item-icon-left item-divide" menu-close ui-sref="menu.allShippingAddress" ui-sref-active="item-active" ng-if="customerData!=null">
                     <span class="icon ion-android-car" aria-hidden="true"></span>{{'Shipping Address'|translate}}
                 </a>
@@ -101,9 +101,7 @@
                 <a class="item item-icon-left item-divide" menu-close ui-sref="menu.aboutUs" ui-sref-active="item-active">
                     <span class="icon ion-android-alert" aria-hidden="true"></span>{{'About Us'|translate}}
                 </a>
-                 <a class="item item-icon-left item-divide" menu-close ui-sref="menu.laravelCategories" ui-sref-active="item-active">
-                    <span class="icon ion-social-wordpress" aria-hidden="true"></span>{{'News'|translate}}
-                </a>
+
                 <a class="item item-icon-left item-divide" menu-close ui-sref="intro" ui-sref-active="item-active">
                     <span class="icon ion-ios-book" aria-hidden="true"></span>{{'Intro'|translate}}
                 </a>
@@ -161,9 +159,6 @@
         </a>
         <a class="tab-item" ng-click="openProducts('Newest','newest')" ng-class="{'active': currentState=='menu.products'}">
             <i class="icon fa fa-truck"></i> {{'Shop'|translate}}
-        </a>
-        <a class="tab-item" href="#/menu/laravelCategories" ng-class="{'active': currentState=='menu.laravelCategories'}">
-            <i class="icon ion-social-wordpress"></i> {{'News'|translate}}
         </a>
         <a class="tab-item" menu-toggle="left" ng-class="{'active': currentState=='menu'}">
             <i class="icon ion-android-more-vertical"></i> {{'Menu'|translate}}
