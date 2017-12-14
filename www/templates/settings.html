@@ -9,7 +9,7 @@
         <!--setting-panel-->
         <ul class="list">
             <li class="item item-toggle">
-                {{'Turn on/off Local Notifications'|translate}}
+                {{'Yerel Bildirimi Aç / Kapat'|translate}}
                 <label class="toggle toggle-royal">
                     <input type="checkbox" ng-model="local_noti_is_on" ng-change="turnOnOffNotification(local_noti_is_on)">
                     <div class="track">
@@ -18,7 +18,7 @@
                 </label>
             </li>
              <li class="item item-toggle">
-               {{' Turn on/off Notifications'|translate}}
+               {{' Bildirimleri Aç / Kapat'|translate}}
                 <label class="toggle toggle-royal">
                     <input type="checkbox" ng-model="togglePushNotification" ng-change="onOffPushNotification(togglePushNotification)">
                     <div class="track">
@@ -27,7 +27,7 @@
                 </label>
             </li>
             <li class="item item-toggle">
-                {{'Show/Hide Add to cart button'|translate}}
+                {{'Sepete Ekle Butonu Göster / Gizle'|translate}}
                 <label class="toggle toggle-royal">
                     <input type="checkbox" ng-model="cartButton" ng-change="hideShowCartButton(cartButton)">
                     <div class="track">
@@ -36,7 +36,7 @@
                 </label>
             </li>
             <li class="item item-toggle">
-                {{'Show Footer Menu'|translate}}
+                {{'Footer Menu Göster / Gizle'|translate}}
                 <label class="toggle toggle-royal">
                     <input type="checkbox" ng-model="menuFooter" ng-change="hideShowFooterTabs(menuFooter)">
                     <div class="track">
@@ -46,14 +46,6 @@
             </li>
         </ul>
          <div class="list list-links">
-                <a ng-click="showModal('selectLanguage')" class="item item-icon-right">
-                    {{'Change Language'|translate}}
-                    <i class="icon ion-android-arrow-forward"></i>
-                </a>
-            <a ng-click="openLink('http://ionicecommerce.com/')" class="item item-icon-right">
-                {{'Official Website'|translate}}
-                <i class="icon ion-android-arrow-forward"></i>
-            </a>
             <a ng-click="showModal('privacyPolicy')" class="item item-icon-right">
                 {{'Privacy Policy'|translate}}
                 <i class="icon ion-android-arrow-forward"></i>
