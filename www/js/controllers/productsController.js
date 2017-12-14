@@ -2,14 +2,14 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
 
     $scope.products = [];//list of products
     $rootScope.productPage = true; //varible for apply filter button
-    $scope.categoryId = $stateParams.catId;// category id of the selected category 
+    $scope.categoryId = $stateParams.catId;// category id of the selected category
     if ($scope.categoryId == null || $scope.categoryId == '')
     { $scope.sortOrder = ''; $scope.categoryId = ''; }
-    $scope.categoryName = $stateParams.name;// category name of the selected category 
+    $scope.categoryName = $stateParams.name;// category name of the selected category
     $scope.sortOrder = $stateParams.sort;
     if ($scope.sortOrder == null || $scope.sortOrder == '' || $scope.sortOrder == undefined)
         $scope.sortOrder = 'newest';
-    $rootScope.getFilters($scope.categoryId);//getting filters from the server 
+    $rootScope.getFilters($scope.categoryId);//getting filters from the server
     var page = 0;//page varible for products while getting from server
     $scope.falseInfinte = true; //variable to enable disable infinite Scroll
     $scope.tabs = [];
@@ -18,7 +18,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
     var emptyProductArray = false;
     $scope.hideScrollButton = true;
     var filterApplied = false;
-    //============================================================================================  
+    //============================================================================================
     //initializing sub categories sliding tabs  products for home-version-1,home-version-3
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         //initializing sub categories sliding tabs  products for home-version-1,home-version-3
@@ -39,7 +39,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
 
 
     });
-    //============================================================================================  
+    //============================================================================================
     //Loading selected category products
     $scope.getCategoryProducts = function (tab) {
         var id = '';
@@ -66,12 +66,12 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
     };
 
 
-    //============================================================================================  
+    //============================================================================================
     //getting products from server and saving it in products array
     $scope.getProducts = function (page) {
         //   ionicLoading('', 1000);
         if ($scope.falseInfinte == false) { return 0; }
-        var data = {};//object to pass data for service called 
+        var data = {};//object to pass data for service called
         data.page_number = page;
         data.categories_id = $scope.categoryId;
         data.type = $scope.sortOrder;
@@ -96,7 +96,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
                 if (response.data.product_data.length == 0) {
                     if (page == 0) {
                         document.addEventListener("deviceready", function () {
-                            $cordovaToast.show('No Product found!', 'short', 'bottom');//android toast 
+                            $cordovaToast.show('No Product found!', 'short', 'bottom');//android toast
                         }, false);
                     }
                     $scope.falseInfinte = false;//disabling infinite scroll
@@ -114,14 +114,14 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
                     if (emptyProductArray == true) { $scope.products = []; emptyProductArray = false; }
                     $scope.products = [];
                     document.addEventListener("deviceready", function () {
-                        $cordovaToast.show('No Product found!', 'short', 'bottom');//android toast 
+                        $cordovaToast.show('No Product found!', 'short', 'bottom');//android toast
                     }, false);
                     $scope.totalProducts = response.data.total_record;
                 }
                 else {
                     if ($scope.products.length != 0) {
                         document.addEventListener("deviceready", function () {
-                            $cordovaToast.show('All Products Loaded', 'short', 'bottom');//android toast 
+                            $cordovaToast.show('Tüm Ürünler Yüklendi', 'short', 'bottom');//android toast 
                         }, false);
                     }
                 }
@@ -130,7 +130,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
             //     $scope.falseInfinte = false;
             //     $scope.$broadcast('scroll.infiniteScrollComplete');//stopping infinite scroll loader
             //     document.addEventListener("deviceready", function () {
-            //         $cordovaToast.show('All Products Loaded', 'long', 'bottom');//android toast 
+            //         $cordovaToast.show('All Products Loaded', 'long', 'bottom');//android toast
             //     }, false);
             // }
         }, function (response) {
@@ -139,14 +139,14 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
             console.log(response);
         });
     };
-    //============================================================================================  
+    //============================================================================================
     //load more data form server
     $scope.loadMore = function () {
         $scope.getProducts(page);
         page++;// incrementing the page number
     };
     // $scope.loadMore();
-    //============================================================================================  
+    //============================================================================================
     //resetting the page
     $scope.reset = function () {
         $scope.products = [];
@@ -166,7 +166,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
         $scope.scrollToTop();
     }
 
-    //============================================================================================  
+    //============================================================================================
     //Using back button to rest the page
     $rootScope.applyFilterProductPage = function () {
         // if ($rootScope.filterArray.length == 0 && $rootScope.filterPrice.minPrice == 0 && $rootScope.filterPrice.maxPrice == 1000) {
@@ -196,8 +196,8 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
     $translate([$scope.sortOrder]).then(function (translations) {
         $scope.sortOrderText = translations[$scope.sortOrder];
     });
-    //============================================================================================  
-    //function for action sheet 
+    //============================================================================================
+    //function for action sheet
     $scope.actionSheet = function () {
         var icon = '<i class="icon ion-ios-color-filter-outline balanced"></i>';
         var sortArray = ['Newest', 'A - Z', 'Z - A', 'Price : high - low', 'Price : low - high', 'Top Seller', 'Special Products', 'Most Liked'];
@@ -249,7 +249,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
 
 
     };
-    //============================================================================================  
+    //============================================================================================
     //Loading selected category products
     $scope.getSortProducts = function (order) {
         if (order == $scope.sortOrder)
@@ -264,7 +264,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
         emptyProductArray = true;//this variable keep the old product loaded unless it get new products form server
         $scope.loadMore();//loadding more products from server
     };
-    //============================================================================================  
+    //============================================================================================
     //scroll to top page
     var scrollLastPostion = 0;
     $scope.onScroll = function () {
@@ -279,7 +279,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
 
     };
     //===============================================================================================
-    //on swipe up 
+    //on swipe up
     $scope.hideFooter = function () {
         if ($scope.hideSubheader == false) {
             $scope.hideSubheader = true;
@@ -288,7 +288,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
         }
     }
     //===============================================================================================
-    //on swipe up 
+    //on swipe up
     $scope.showFooter = function () {
         if ($scope.hideSubheader == true) {
             $scope.hideSubheader = false;
@@ -314,7 +314,7 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
             return true;
         }
     };
-    //============================================================================================  
+    //============================================================================================
     //scroll to top page
     $scope.scrollToTop = function () {
         $ionicScrollDelegate.$getByHandle('products').scrollTop(true);
@@ -334,8 +334,8 @@ ecommerce.controller('productsController', function ($scope, addToCartService, $
         $rootScope.footerTabsView = false;
     });
 
-    //============================================================================================  
-    //adding product to the cart 
+    //============================================================================================
+    //adding product to the cart
     $scope.addToCart = function (product) {
         addToCartService(product, []);
     };

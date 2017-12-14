@@ -7,13 +7,13 @@ ecommerce.controller('wishListController', function ($scope, $cordovaToast, $roo
     //variable to enable disable infinite Scroll
     $scope.falseInfinte = true;
 
-    //============================================================================================  
+    //============================================================================================
     //getting products from server and saving it in products array
     $scope.getWishList = function () {
         var data = {};
         data.page_number = page;
         data.type = 'wishlist';
-        
+
         data.language_id = $rootScope.languageId;
         if ($rootScope.customerData == null)
             data.customers_id = null;
@@ -37,7 +37,7 @@ ecommerce.controller('wishListController', function ($scope, $cordovaToast, $roo
                     $scope.falseInfinte = false;
                     $scope.$broadcast('scroll.infiniteScrollComplete');
                     document.addEventListener("deviceready", function () {
-                        $cordovaToast.show('All Products Loaded', 'short', 'bottom');
+                        $cordovaToast.show('Tüm Ürünler Yüklendi', 'short', 'bottom');
                     }, false);
                 }, 1000);
             }
@@ -46,7 +46,7 @@ ecommerce.controller('wishListController', function ($scope, $cordovaToast, $roo
             console.log(response);
         });
     };
-    //============================================================================================  
+    //============================================================================================
     //load more data form server
     $scope.loadMore = function () {
         $scope.getWishList();

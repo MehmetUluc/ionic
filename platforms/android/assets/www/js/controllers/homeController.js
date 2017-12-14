@@ -14,7 +14,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
     $scope.showHeaderTabs = false;
     $scope.slideClickedIndex = 0;
     $scope.hidefooter = false;
-    //============================================================================================  
+    //============================================================================================
     //function to change the top tabs
     //var count = 0;//variable to stop running ionic loading first time
     $scope.changeTab = function (value) {
@@ -29,7 +29,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
     //============================================================================================
     //reset filters
     $scope.resetFilter = function () {
-        ionicLoading("", 500);// ionic loading 
+        ionicLoading("", 500);// ionic loading
         emptyProductArray = true;//this variable keep the old product loaded unless it get new products form server
         $rootScope.clearFilter();//clearing the filters selected funtion(filter controller)
         $scope.falseInfinte = true;//enabling infinite scroll
@@ -38,7 +38,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
         $rootScope.filter = 0;
         $scope.loadMore();//loadding more products from server
     }
-    //============================================================================================  
+    //============================================================================================
     //calling function to apply filter on the products
     $rootScope.applyFilter = function () {
         ionicLoading("", 500);
@@ -68,7 +68,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
             $scope.loadMore();//loadding more products from server
         }
     };
-    //============================================================================================  
+    //============================================================================================
     //getting products from server and saving it in products array
     $rootScope.getAllProducts = function (page) {
 
@@ -110,14 +110,14 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
                     if (emptyProductArray == true) { $rootScope.products = []; emptyProductArray = false; }
                     $rootScope.products = [];
                     document.addEventListener("deviceready", function () {
-                        $cordovaToast.show('No Product found!', 'short', 'bottom');//android toast 
+                        $cordovaToast.show('No Product found!', 'short', 'bottom');//android toast
                     }, false);
                     $scope.totalProducts = response.data.total_record;
                 }
                 else {
                     if ($rootScope.products.length != 0) {
                         document.addEventListener("deviceready", function () {
-                            $cordovaToast.show('All Products Loaded', 'short', 'bottom');//android toast 
+                            $cordovaToast.show('Tüm Ürünler Yüklendi', 'short', 'bottom');//android toast 
                         }, false);
                     }
                 }
@@ -129,7 +129,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
         });
     };
 
-    //============================================================================================  
+    //============================================================================================
     //load more data form server
     $scope.loadMore = function () {
         $rootScope.getAllProducts(page);
@@ -155,8 +155,8 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
             }
         });
     }
-    //============================================================================================   
-    //like dislike product 
+    //============================================================================================
+    //like dislike product
     $rootScope.likeProduct = function (product, array) {
 
         if ($rootScope.customerData == null) {//checking user is logged in or not
@@ -200,8 +200,8 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
                 });
         }
     };
-    //============================================================================================  
-    //adding product to the cart 
+    //============================================================================================
+    //adding product to the cart
     $scope.addToCart = function (product) {
         addToCartService(product, []);
     };
@@ -245,14 +245,14 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
     $scope.$on('$ionicView.leave', function () {
         $scope.tempId = $rootScope.catId;
     });
-    //============================================================================================  
+    //============================================================================================
     //getting list of procducts from the server
     $scope.getToSubCategoryProducts = function (name, id, temp) {
         if (temp == undefined) temp = 4;
         ionicLoading("", 500);
         $state.go('menu.subcategories', { name: name, mainId: id, tempName: temp });//opening sub categories page with template 4
     };
-    //============================================================================================  
+    //============================================================================================
     //scroll to top page
     var scrollLastPostion = 0;
     $scope.onScroll = function () {
@@ -269,7 +269,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
         if (pos < scrollLastPostion) { $scope.showFooter(); scrollLastPostion = pos; }
         $scope.safeApply();
     };
-    //============================================================================================  
+    //============================================================================================
     //scroll to top page
     $scope.scrollToTop = function () {
         if ($rootScope.products.length > 6) {
@@ -282,7 +282,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
         }
     };
     //===============================================================================================
-    //on swipe up 
+    //on swipe up
     $scope.hideFooterr = function () {
         if ($rootScope.footerTabsView == true) {
             $rootScope.footerTabsView = false;
@@ -291,7 +291,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
         }
     };
     //===============================================================================================
-    //on swipe up 
+    //on swipe up
     $scope.showFooter = function () {
         if ($rootScope.footerTabsView == false) {
             $rootScope.footerTabsView = true;
@@ -314,7 +314,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
             $state.go('menu.products', { 'sort': image.type });
         }
     };
-    //============================================================================================  
+    //============================================================================================
     //getting single Product data from server
     $scope.getSingleProductDetail = function (id) {
         ionicLoading("show");
@@ -338,7 +338,7 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
             //showAlertService("Error server not reponding");
         });
     };
-    //============================================================================================  
+    //============================================================================================
     //functions called when array loaded in the html also initializing swiper variables
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         //initializing top banners
@@ -402,8 +402,8 @@ ecommerce.controller('homeController', function ($http, $cordovaToast,$localStor
 
         });
     });
-    //================================================================================   
-    //funciton to keeps the selected tab on front  
+    //================================================================================
+    //funciton to keeps the selected tab on front
     var moveTabs = function () {
         try {
             var i = $('.tabs-swiper-slide-active').index();
