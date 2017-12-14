@@ -1,7 +1,7 @@
 ecommerce.controller('contactUsController', function ($http,ionicLoading, $scope, showAlertService, $rootScope) {
 
-	//============================================================================================    
-	//submitting the contact us  info 
+	//============================================================================================
+	//submitting the contact us  info
 	$scope.contact = {};
 	$scope.address = config.address;
 	$scope.email = config.email;
@@ -43,7 +43,7 @@ ecommerce.controller('contactUsController', function ($http,ionicLoading, $scope
 		});
 
 		var infoWindow = new google.maps.InfoWindow({
-			content: "City Hall Park, New York, NY 10007, United States"
+			content: config.address
 		});
 
 		google.maps.event.addListener(marker, 'click', function () {
