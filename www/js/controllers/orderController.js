@@ -254,6 +254,51 @@ ecommerce
       $scope.getPublishkey();
     });
 
+    var scrollLastPostion = 0;
+    $scope.onScroll = function () {
+        var top = $('.sticky-tabs').offset().top - 44;
+        var pos = $ionicScrollDelegate.$getByHandle('home').getScrollPosition().top;
+        // console.log(pos);
+        if (top <= 0 && $scope.showHeaderTabs == false) { $scope.showHeaderTabs = true; moveTabs(); }
+        if (top >= 0 && $scope.showHeaderTabs == true) { $scope.showHeaderTabs = false; moveTabs(); }
+
+        if (pos >= 1000 && $scope.hideScrollButton == true) $scope.hideScrollButton = false;
+        if (pos <= 1000 && $scope.hideScrollButton == false) $scope.hideScrollButton = true;
+
+        if (pos > scrollLastPostion) { $scope.hideFooterr(); scrollLastPostion = pos; }
+        if (pos < scrollLastPostion) { $scope.showFooter(); scrollLastPostion = pos; }
+        $scope.safeApply();
+    };
+    //============================================================================================
+    //scroll to top page
+    $scope.scrollToTop = function () {
+        if ($rootScope.products.length > 6) {
+            $location.hash('scrollTo');
+            $ionicScrollDelegate.anchorScroll(true);
+            setTimeout(function () {
+                //console.log("onscroll called");
+                $scope.onScroll();
+            }, 100);
+        }
+    };
+    //===============================================================================================
+    //on swipe up
+    $scope.hideFooterr = function () {
+        if ($rootScope.footerTabsView == true) {
+            $rootScope.footerTabsView = false;
+            $scope.safeApply();
+            //   console.log($scope.hideSubheader);
+        }
+    };
+    //===============================================================================================
+    //on swipe up
+    $scope.showFooter = function () {
+        if ($rootScope.footerTabsView == false) {
+            $rootScope.footerTabsView = true;
+            $scope.safeApply();
+            //   console.log($scope.hideSubheader);
+        }
+    };
 
     //variable to store coupon data
     $scope.coupon = null;
