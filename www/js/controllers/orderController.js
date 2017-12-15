@@ -8,7 +8,7 @@ ecommerce
     $scope.tokenFromServer = null;
     $scope.discount = 0;
     $rootScope.orderDetails.payment_method = 'paypal';
-    //============================================================================================  
+    //============================================================================================
     //placing order
     $scope.addOrder = function (nonce) {
       ionicLoading("show");
@@ -42,7 +42,7 @@ ecommerce
         showAlertService("Error server not reponding");
       });
     };
-    //============================================================================================  
+    //============================================================================================
     //getting single Product data from server
     $scope.getSingleProductDetail = function (id) {
       ionicLoading("", 1000);
@@ -65,7 +65,7 @@ ecommerce
       }
       );
     };
-    //============================================================================================  
+    //============================================================================================
     //CAlculate all total
     $scope.totalDiscount = function () {
       var subTotal = 0;
@@ -77,7 +77,7 @@ ecommerce
       $scope.productsTotal = subTotal;
       $scope.discount = (subTotal - total);
     };
-    //============================================================================================  
+    //============================================================================================
     //CAlculate all total
     $scope.allTotal = function () {
       var a = lineItemTotalService($scope.products);
@@ -94,13 +94,13 @@ ecommerce
 
 
 
-    //============================================================================================  
+    //============================================================================================
     //getting token from server
     var settingNonce = function (value) {
       $scope.nonce = value;
       console.log("$scope.nonce " + $scope.nonce);
     }
-    //============================================================================================  
+    //============================================================================================
     //getting token from server
     $scope.getToken = function () {
       ionicLoading("show");
@@ -108,8 +108,8 @@ ecommerce
         ionicLoading("hide");
         if (response.data.success == 1) {
           $scope.tokenFromServer = response.data.token;
-          $scope.braintreePaypal($scope.tokenFromServer);
-          $scope.braintreeCreditCard($scope.tokenFromServer);
+          //$scope.braintreePaypal($scope.tokenFromServer);
+          //$scope.braintreeCreditCard($scope.tokenFromServer);
           if ($rootScope.settings.paymentMethods == 'paypal')
           { }
           else
@@ -204,7 +204,7 @@ ecommerce
         });
       });
     };
-    //============================================================================================  
+    //============================================================================================
     //getting token from server
     $scope.getPublishkey = function () {
       ionicLoading("show");
@@ -250,14 +250,14 @@ ecommerce
     $scope.$on('$ionicView.enter', function () {
       // if ($rootScope.orderDetails.shipping_method == "upsShipping")
       $scope.allTotal();
-      $scope.getToken();
+    //  $scope.getToken();
       $scope.getPublishkey();
     });
 
 
     //variable to store coupon data
     $scope.coupon = null;
-    //============================================================================================   
+    //============================================================================================
     //getting getMostLikedProducts from the server
     $scope.getCoupon = function (code) {
       if (code == '' || code == null) {
@@ -283,7 +283,7 @@ ecommerce
       });
 
     };
-    //============================================================================================  
+    //============================================================================================
     //applying coupon on the cart
     var applyCouponCart = function (coupon) {
       //checking the coupon is valid or not
@@ -330,7 +330,7 @@ ecommerce
       }
       $scope.allTotal();
     };
-    //============================================================================================  
+    //============================================================================================
     //delete Coupon
     $scope.deleteCoupon = function (code) {
 
