@@ -20,7 +20,7 @@
 
                 <div class="icon ion-edit" ng-click="updateAddress(address);"></div>
 
-                <h2>{{address.street+', '+ address.city+', '+address.state+' '+address.postcode+', '+address.country_name}}</h2>
+                <h2>{{address.street+', '+ 'Tokat '+', '+address.state+' '+address.postcode+', '}}</h2>
 
                 <span class="icon ion-android-radio-button-off" ng-click="defaultAddress(address.address_id)" ng-if="address.default_address==null"></span>
                 <span class="icon ion-android-radio-button-on" ng-if="address.default_address!=null"></span>

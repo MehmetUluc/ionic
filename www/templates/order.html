@@ -96,7 +96,7 @@
 				<div class="item-sub" ng-if="coupon.discount_type == 'fixed_cart'">{{'A fixed total discount for the entire cart'|translate}}</div>
 				<div class="item-sub" ng-if="coupon.discount_type == 'fixed_product'">{{'A fixed total discount for selected products only'|translate}}</div>
 				<div class="item-sub" ng-if="coupon.discount_type == 'percent_product'">{{'A percentage discount for selected products only'|translate}}</div>
-				 <button class="button button-clear button-assertive button-small pull-right" ng-click="deleteCoupon(coupon.code)" translate>remove</button> 
+				 <button class="button button-clear button-assertive button-small pull-right" ng-click="deleteCoupon(coupon.code)" translate>remove</button>
 			</div>
 		</div>
 
@@ -131,51 +131,6 @@
 				</select>
 			</label>
 
-			<div class="braintree-paypal" ng-show="orderDetail.payment_method=='paypal'">
-				<div id="paypal-container"></div>
-			</div>
-
-			<div class="braintree-card" ng-show="orderDetail.payment_method=='card_payment'">
-				<form id="braintree-form" class="form">
-					<div id="error-message"></div>
-					<label class="hosted-fields--label" for="card-number" translate>Card Number</label>
-					<div class="hosted-field form-control" id="card-number" value="4111111111111111"></div>
-
-					<label class="hosted-fields--label" for="cvv" value="123">CVV</label>
-					<div class="hosted-field form-control" id="cvv"></div>
-
-					<label class="hosted-fields--label" for="expiration-date" translate>Expiration Date</label>
-					<div class="hosted-field form-control" id="expiration-date" value="10/2019"></div>
-
-					<input type="hidden" name="payment-method-nonce">
-					<input type="submit" id="braintreesubmit" class="button button-block button-royal" ng-click="submitOnClick()" value="Continue"
-					 disabled>
-				</form>
-			</div>
-
-
-
-			<div class="stripe-card" ng-show="orderDetail.payment_method=='stripe'">
-				<form class="form" stripe-form="stripeCallback" name="checkoutForm">
-					<label class="item item-input">
-						<span class="fa fa-credit-card placeholder-icon" aria-hidden="true"></span>
-						<input ng-model="number" class="form-control" placeholder="4111111111111111" payments-format="card" payments-validate="card" name="card" value="4111111111111111" ng-model="orderDetail.cc_number"/>
-					</label>
-					<label class="item item-input">
-						<span class="fa fa-calendar placeholder-icon" aria-hidden="true"></span>
-						<input ng-model="expiry" class="form-control" placeholder="10/2019" payments-format="expiry" payments-validate="expiry" value="10/2022" name="expiry" ng-model="orderDetail.cc_expires" />
-					</label>
-					<label class="item item-input">
-						<span class="fa fa-hashtag placeholder-icon" aria-hidden="true"></span>
-						<input ng-model="cvc" class="form-control" placeholder="123" payments-format="cvc" payments-validate="cvc" name="cvc" value="123"  ng-model="orderDetail.cc_type"/>
-					</label>
-					<button type="submit" class="button button-block button-royal">Continue</button>
-				</form>
-
-				<div class="error" ng-if="checkoutForm.card.$invalid" translate>Error: invalid card number!</div>
-				<div class="error" ng-if="checkoutForm.expiry.$invalid" translate>Error: invalid expiry date!</div>
-				<div class="error" ng-if="checkoutForm.cvc.$invalid" translate>Error: invalid cvc number!</div>
-			</div>
 		</div>
 
 		<div class="list">

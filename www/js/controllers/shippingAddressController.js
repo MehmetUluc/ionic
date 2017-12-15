@@ -14,7 +14,7 @@ ecommerce.controller('shippingAddressController', function (showAlertService, $i
 	}
 
 	$scope.allShippingAddress = [];
-	//============================================================================================    
+	//============================================================================================
 	//getting addresss from server
 	$scope.getAddress = function () {
 		ionicLoading("show");
@@ -30,16 +30,11 @@ ecommerce.controller('shippingAddressController', function (showAlertService, $i
 						$rootScope.orderDetails.tax_zone_id = value.zone_id;
 						$rootScope.orderDetails.delivery_firstname = value.firstname;
 						$rootScope.orderDetails.delivery_lastname = value.lastname;
-						$rootScope.orderDetails.delivery_state = value.state;
-						$rootScope.orderDetails.delivery_city = value.city;
-						$rootScope.orderDetails.delivery_postcode = parseInt(value.postcode);
-						$rootScope.orderDetails.delivery_zone = value.zone_name;
-						$rootScope.orderDetails.delivery_country = value.country_name;
+
 						$rootScope.orderDetails.delivery_country_id = value.countries_id;
 						$rootScope.orderDetails.delivery_street_address = value.street;
 						//$rootScope.orderDetails.delivery_telephone = $rootScope.customerData.customers_telephone;
-						if ($rootScope.zones.length == 0)
-							$scope.getZones(value.countries_id);
+
 					}
 				});
 
@@ -56,13 +51,7 @@ ecommerce.controller('shippingAddressController', function (showAlertService, $i
 	//=======================================================================================
 	//onchange
 	$scope.countrySelect = function (c) {
-		$rootScope.orderDetails.delivery_country = c.countries_name;
-		$rootScope.orderDetails.delivery_country_code = c.countries_id;
-		$rootScope.orderDetails.delivery_country_id = c.countries_id;
-		$rootScope.orderDetails.delivery_zone = null;
-		$rootScope.orderDetails.delivery_state = null;
-		$scope.getZones(c.countries_id);
-		$scope.closeModal();
+		//
 	};
 
 	//=======================================================================================

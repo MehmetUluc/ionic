@@ -10,7 +10,7 @@ ecommerce.controller('shippingMethodController', function ($scope, $http, $state
             $state.go(view);
         }
         else {
-            showAlertService("Please select Shipping method!");
+            showAlertService("Lütfen Gönderim metodu seçiniz!");
         }
     };
     //================================================================================
