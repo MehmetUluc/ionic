@@ -3,7 +3,7 @@ ecommerce.controller('updateShippingAddressController', function ($scope, $http,
 	//getting countries from the server
 	$scope.getCountries();
 	$rootScope.shippingData = {};
-	//============================================================================================  
+	//============================================================================================
 	//adding shipping address of the user
 	$scope.addShippingAddress = function (form) {
 
@@ -25,10 +25,10 @@ ecommerce.controller('updateShippingAddressController', function ($scope, $http,
 			});
 		}
 		else {
-			showAlertService("please fill all fields");
+			showAlertService("Lütfen tüm alanları doldurunuz");
 		}
 	};
-	//============================================================================================  
+	//============================================================================================
 	//updating shipping address of the user
 	$scope.updateShippingAddress = function (form, id) {
 
@@ -52,11 +52,11 @@ ecommerce.controller('updateShippingAddressController', function ($scope, $http,
 			console.log($rootScope.orderDetails);
 		}
 		else {
-			showAlertService("please fill all fields");
+			showAlertService("Lütfen tüm alanları doldurunuz");
 		}
 	};
 	$scope.showButton = false;
-	//============================================================================================  
+	//============================================================================================
 	//setting button for updating or adding the user
 	$rootScope.showButton = function (value) {
 		if (value == 1)
@@ -64,7 +64,7 @@ ecommerce.controller('updateShippingAddressController', function ($scope, $http,
 		else
 			$scope.showButton = false;//if false then add new button will be visible
 	};
-	//============================================================================================ 
+	//============================================================================================
 	// Execute action on hide modal
 	$scope.$on('modal.hidden', function () {
 		//$state.reload();//reloading the current view after modal is hide
