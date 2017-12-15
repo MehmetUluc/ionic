@@ -4,8 +4,8 @@ ecommerce.controller('createNewAccountController', function ($http, $ionicAction
       $scope.newAccountData = {};
       $scope.profileImage = null;
       $scope.errorMessage = '';
-      //============================================================================================  
-      //function creating new account 
+      //============================================================================================
+      //function creating new account
       $scope.createNewAccount = function (form) {
             if (form.$valid) {
                   $scope.errorMessage = '';
@@ -41,7 +41,7 @@ ecommerce.controller('createNewAccountController', function ($http, $ionicAction
                   // showAlertService("please fill all fields");
             }
       };
-      //============================================================================================  
+      //============================================================================================
       //function getting image from gallery (cordova camera plugin used)
       $scope.gettingImage = function (type) {
 
@@ -72,18 +72,18 @@ ecommerce.controller('createNewAccountController', function ($http, $ionicAction
             }, false);
       };
 
-      //============================================================================================  
-      //function for action sheet 
+      //============================================================================================
+      //function for action sheet
       $scope.actionSheet = function () {
             // Show the action sheet
             var showSheet = $ionicActionSheet.show({
                   buttons: [
-                        { text: '<i class="icon ion-camera balanced"></i> From Camera' },
-                        { text: '<i class="icon ion-images balanced"></i> From Gallery' }
+                        { text: '<i class="icon ion-camera balanced"></i> Fotoğraf Çek' },
+                        { text: '<i class="icon ion-images balanced"></i> Galeriden Seç' }
                   ],
 
-                  titleText: 'Select Option',
-                  cancelText: 'Cancel',
+                  titleText: 'Bir işlem seçin',
+                  cancelText: 'Vazgeç',
                   cancel: function () {
                         // add cancel code..
                   },
@@ -101,4 +101,3 @@ ecommerce.controller('createNewAccountController', function ($http, $ionicAction
       }
 
 });
-

@@ -1,7 +1,7 @@
 ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLoading, $localStorage, $http, showAlertService, $scope, $rootScope) {
 
   $scope.errorMessage = '';
-  //============================================================================================  
+  //============================================================================================
   //logout function (facebook and google plus login)
   $rootScope.logOut = function () {
 
@@ -18,7 +18,7 @@ ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLo
       //logout google account
       window.plugins.googleplus.logout(
         function (msg) {
-          // showAlertService(msg); // do something useful instead of alerting 
+          // showAlertService(msg); // do something useful instead of alerting
         }
       );
     }, false);
@@ -56,8 +56,8 @@ ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLo
       break;
     }
   };
-  //============================================================================================  
-  //login function 
+  //============================================================================================
+  //login function
   $scope.loginData = {};
   $scope.doLogin = function (form) {
     if (form.$valid) {
@@ -98,8 +98,8 @@ ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLo
       showAlertService("please fill all fields");
     }
   };
-  //============================================================================================  
-  //facebook login function 
+  //============================================================================================
+  //facebook login function
   $scope.facebookLogin = function () {
     ionicLoading("", 900);
     ngFB.login({ scope: 'email,read_stream,publish_actions' }).then(
@@ -114,8 +114,8 @@ ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLo
         }
       });
   };
-  //============================================================================================  
-  //google login function 
+  //============================================================================================
+  //google login function
   $scope.googleLogin = function () {
     ionicLoading("", 500);
     window.plugins.googleplus.login(
@@ -136,8 +136,8 @@ ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLo
       }
     );
   };
-  //============================================================================================  
-  //creating new account using function facebook or google details 
+  //============================================================================================
+  //creating new account using function facebook or google details
   var createAccount = function (info, type) {
     ionicLoading("show");
     var data = {};
@@ -162,10 +162,10 @@ ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLo
         //   + $rootScope.customerData.customers_email_address + "</li> <li>Your Password is : "
         //   + $rootScope.customerData.customers_password +
         //   " </li> <li>You can login using this Email and Password. </li> <li>You Can change your password in Menu -> My Account</li></ul>");
-        showAlertService("<h3>Your Account has been created successfully !</h3><ul><li>Your Email: "
-          + "<span>" + $rootScope.customerData.customers_email_address + "</span>" + "</li><li>Your Password: "
+        showAlertService("<h3>Hesabınız başarıyla oluşturuldu !</h3><ul><li>Your Email: "
+          + "<span>" + $rootScope.customerData.customers_email_address + "</span>" + "</li><li>Şifreniz: "
           + "<span>" + $rootScope.customerData.customers_password + "</span>" +
-          " </li></ul><p>You can login using this Email and Password.<br>You can change your password in Menu -> My Account</p>", "Account Information");
+          " </li></ul><p>Bu mail adresi ve şifre ile giriş yapabilirsiniz.<br>Şifrenizi hesabım sayfasından güncelleyebilirsiniz.</p>", "Hesap Detayları");
         //  $ionicSideMenuDelegate.toggleLeft();
         $scope.hideModal('login');
       }
@@ -183,4 +183,3 @@ ecommerce.controller('loginController', function ($state, ngFB, $window, ionicLo
     });
   };
 });
-

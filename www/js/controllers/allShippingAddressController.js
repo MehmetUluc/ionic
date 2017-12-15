@@ -1,7 +1,7 @@
 ecommerce.controller('allShippingAddressController', function ($http, $scope, $rootScope, ionicLoading, showAlertService) {
 	//variable to store the addresses of the user
 	$scope.allShippingAddress = [];
-	//============================================================================================    
+	//============================================================================================
 	//getting addresss from server
 	$scope.getAddress = function () {
 		ionicLoading("show");
@@ -15,11 +15,11 @@ ecommerce.controller('allShippingAddressController', function ($http, $scope, $r
 			}
 		}, function (response) {
 			ionicLoading("hide");
-			showAlertService("Error server not reponding");
+			showAlertService("Sunucudan yanıt alınamadı");
 		});
 	};
 	$scope.getAddress();
-	//============================================================================================  
+	//============================================================================================
 	// delete shipping address
 	$scope.deleteAddress = function (id) {
 		ionicLoading("show");
@@ -34,10 +34,10 @@ ecommerce.controller('allShippingAddressController', function ($http, $scope, $r
 			}
 		}, function (response) {
 			ionicLoading("hide");
-			showAlertService("Error server not reponding");
+			showAlertService("Sunucudan yanıt alınamadı");
 		});
 	};
-	//============================================================================================  
+	//============================================================================================
 	// default shipping address
 	$scope.defaultAddress = function (id) {
 		ionicLoading("show");
@@ -52,10 +52,10 @@ ecommerce.controller('allShippingAddressController', function ($http, $scope, $r
 			}
 		}, function (response) {
 			ionicLoading("hide");
-			showAlertService("Error server not reponding");
+			showAlertService("Sunucudan yanıt alınamadı");
 		});
 	};
-	//============================================================================================  
+	//============================================================================================
 	//function to update the address of the user
 	$scope.updateAddress = function (address) {
 		$rootScope.shippingData.address_id = address.address_id;

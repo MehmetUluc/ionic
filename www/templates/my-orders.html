@@ -24,7 +24,7 @@
 			<div class="item" ng-repeat="order in orders| orderBy:'-'" ng-click="showOrderDetail(order)">
 				<div class="row">
 					<div class="col col-50">
-						<h3>{{'Order ID'|translate}}</h3>
+						<h3>{{'Sipariş No'|translate}}</h3>
 					</div>
 					<div class="col col-50">
 						<span>{{'#'+order.orders_id}}</span>
@@ -50,7 +50,7 @@
 				</div>
 				<div class="row">
 					<div class="col col-50">
-						<h3>{{'Status'|translate}}</h3>
+						<h3>{{'Durum'|translate}}</h3>
 					</div>
 					<div class="col col-50">
 						<span ng-class="{'label-pending':order.orders_status=='Pending', 'label-cancel':order.orders_status=='Cancel', 'label-complete':order.orders_status=='Completed'}">{{order.orders_status}}</span>
